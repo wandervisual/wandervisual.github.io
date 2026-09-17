@@ -1,17 +1,31 @@
+```css
+/* ================================= */
+/* RESET */
+/* ================================= */
+
 * {
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 }
+
 
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background: #020913;
+
     color: white;
+
     overflow-x: hidden;
 }
 
@@ -21,42 +35,51 @@ body {
 /* ================================= */
 
 .minecraft-bg {
+
     position: fixed;
+
     inset: 0;
+
     z-index: -10;
+
     overflow: hidden;
 
     background:
         linear-gradient(
             to bottom,
             #020817 0%,
-            #061a32 38%,
-            #0876a5 68%,
-            #0ab7d1 82%,
+            #061a32 35%,
+            #0876a5 67%,
+            #08b7d1 82%,
             #031019 100%
         );
 }
 
 
-/* Синие облака/свечение */
+/* Голубое свечение горизонта */
 
 .minecraft-bg::before {
+
     content: "";
+
     position: absolute;
 
     width: 900px;
     height: 400px;
 
     left: 50%;
-    bottom: 10%;
+    bottom: 5%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     background: #00cfff;
 
-    filter: blur(130px);
+    filter:
+        blur(140px);
 
     opacity: 0.18;
+
 }
 
 
@@ -65,25 +88,71 @@ body {
 /* ================================= */
 
 .stars {
+
     position: absolute;
+
     inset: 0;
 
     background-image:
-        radial-gradient(circle, white 1px, transparent 1px),
-        radial-gradient(circle, #8edfff 1px, transparent 1px),
-        radial-gradient(circle, white 1px, transparent 1px);
+
+        radial-gradient(
+            circle,
+            white 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            circle,
+            #8edfff 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            circle,
+            white 1px,
+            transparent 1px
+        );
 
     background-size:
+
         130px 130px,
         190px 190px,
         260px 260px;
 
     background-position:
+
         20px 30px,
         80px 100px,
         150px 50px;
 
     opacity: 0.55;
+
+    animation:
+        starsMove 50s linear infinite;
+
+}
+
+
+@keyframes starsMove {
+
+    from {
+
+        background-position:
+            20px 30px,
+            80px 100px,
+            150px 50px;
+
+    }
+
+    to {
+
+        background-position:
+            320px 180px,
+            -120px 300px,
+            400px -100px;
+
+    }
+
 }
 
 
@@ -92,6 +161,7 @@ body {
 /* ================================= */
 
 .moon {
+
     position: absolute;
 
     width: 130px;
@@ -111,15 +181,52 @@ body {
         );
 
     box-shadow:
+
         0 0 30px #9cecff,
-        0 0 80px rgba(77, 208, 255, 0.45),
-        0 0 150px rgba(0, 174, 255, 0.2);
+
+        0 0 80px
+        rgba(77, 208, 255, 0.45),
+
+        0 0 150px
+        rgba(0, 174, 255, 0.2);
+
+    animation:
+        moonGlow 4s ease-in-out infinite alternate;
+
 }
 
 
-/* Кратеры луны */
+@keyframes moonGlow {
+
+    from {
+
+        box-shadow:
+
+            0 0 30px #9cecff,
+
+            0 0 70px
+            rgba(77, 208, 255, 0.35);
+
+    }
+
+    to {
+
+        box-shadow:
+
+            0 0 45px #9cecff,
+
+            0 0 110px
+            rgba(77, 208, 255, 0.55);
+
+    }
+
+}
+
+
+/* Лунные кратеры */
 
 .moon::before {
+
     content: "";
 
     position: absolute;
@@ -132,12 +239,100 @@ body {
 
     border-radius: 50%;
 
-    background: rgba(65, 145, 180, 0.22);
+    background:
+        rgba(65, 145, 180, 0.22);
 
     box-shadow:
-        45px 10px 0 rgba(65, 145, 180, 0.15),
-        25px 55px 0 rgba(65, 145, 180, 0.17),
-        70px 65px 0 rgba(65, 145, 180, 0.13);
+
+        45px 10px 0
+        rgba(65, 145, 180, 0.15),
+
+        25px 55px 0
+        rgba(65, 145, 180, 0.17),
+
+        70px 65px 0
+        rgba(65, 145, 180, 0.13);
+
+}
+
+
+/* ================================= */
+/* CLOUDS */
+/* ================================= */
+
+.cloud {
+
+    position: absolute;
+
+    width: 300px;
+    height: 45px;
+
+    background:
+        rgba(100, 220, 255, 0.06);
+
+    filter:
+        blur(15px);
+
+    border-radius: 50%;
+
+}
+
+
+.cloud-1 {
+
+    top: 30%;
+
+    left: -350px;
+
+    animation:
+        cloudMove1 70s linear infinite;
+
+}
+
+
+.cloud-2 {
+
+    top: 42%;
+
+    left: -500px;
+
+    width: 420px;
+
+    opacity: 0.7;
+
+    animation:
+        cloudMove2 100s linear infinite;
+
+}
+
+
+@keyframes cloudMove1 {
+
+    from {
+        transform:
+            translateX(0);
+    }
+
+    to {
+        transform:
+            translateX(calc(100vw + 700px));
+    }
+
+}
+
+
+@keyframes cloudMove2 {
+
+    from {
+        transform:
+            translateX(0);
+    }
+
+    to {
+        transform:
+            translateX(calc(100vw + 900px));
+    }
+
 }
 
 
@@ -146,53 +341,101 @@ body {
 /* ================================= */
 
 .mountains {
+
     position: absolute;
 
     left: -10%;
-    bottom: 16%;
 
     width: 120%;
-    height: 38%;
 
-    clip-path: polygon(
-        0 100%,
-        0 70%,
-        8% 50%,
-        15% 72%,
-        25% 35%,
-        34% 70%,
-        45% 25%,
-        56% 67%,
-        66% 38%,
-        76% 70%,
-        87% 30%,
-        100% 65%,
-        100% 100%
-    );
+    clip-path:
+        polygon(
+            0 100%,
+            0 70%,
+            8% 50%,
+            15% 72%,
+            25% 35%,
+            34% 70%,
+            45% 25%,
+            56% 67%,
+            66% 38%,
+            76% 70%,
+            87% 30%,
+            100% 65%,
+            100% 100%
+        );
+
 }
 
 
-/* дальние горы */
+/* Дальние */
 
 .mountains-back {
+
+    bottom: 16%;
+
+    height: 38%;
+
     background: #06243b;
 
     opacity: 0.85;
 
-    transform: scale(1.05);
+    animation:
+        mountainsBack 30s ease-in-out infinite alternate;
+
 }
 
 
-/* ближние горы */
+@keyframes mountainsBack {
+
+    from {
+        transform:
+            translateX(0)
+            scale(1.05);
+    }
+
+    to {
+        transform:
+            translateX(-25px)
+            scale(1.05);
+    }
+
+}
+
+
+/* Ближние */
 
 .mountains-front {
+
     bottom: 11%;
 
     height: 32%;
 
     background: #031522;
 
-    transform: scale(1.15);
+    transform:
+        scale(1.15);
+
+    animation:
+        mountainsFront 20s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes mountainsFront {
+
+    from {
+        transform:
+            translateX(0)
+            scale(1.15);
+    }
+
+    to {
+        transform:
+            translateX(20px)
+            scale(1.15);
+    }
+
 }
 
 
@@ -201,12 +444,15 @@ body {
 /* ================================= */
 
 .horizon {
+
     position: absolute;
 
     bottom: 8%;
+
     left: 0;
 
     width: 100%;
+
     height: 170px;
 
     background:
@@ -217,6 +463,7 @@ body {
         );
 
     opacity: 0.9;
+
 }
 
 
@@ -225,12 +472,15 @@ body {
 /* ================================= */
 
 .ground {
+
     position: absolute;
 
     bottom: 0;
+
     left: 0;
 
     width: 100%;
+
     height: 14%;
 
     background:
@@ -239,34 +489,39 @@ body {
             #071a20,
             #02070b
         );
+
 }
 
 
-/* Minecraft-like grass line */
-
 .ground::before {
+
     content: "";
 
     position: absolute;
 
     top: 0;
+
     left: 0;
 
     width: 100%;
+
     height: 8px;
 
     background: #123f36;
 
     box-shadow:
-        0 0 20px rgba(24, 177, 150, 0.25);
+        0 0 20px
+        rgba(24, 177, 150, 0.25);
+
 }
 
 
 /* ================================= */
-/* NAVIGATION */
+/* HEADER */
 /* ================================= */
 
 header {
+
     position: fixed;
 
     top: 0;
@@ -274,33 +529,116 @@ header {
 
     width: 100%;
 
-    padding: 20px 7%;
+    padding:
+        16px 7%;
 
     display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-    background: rgba(2, 10, 18, 0.55);
+    justify-content:
+        space-between;
 
-    backdrop-filter: blur(15px);
+    align-items:
+        center;
+
+    background:
+        rgba(2, 10, 18, 0.62);
+
+    backdrop-filter:
+        blur(16px);
 
     border-bottom:
-        1px solid rgba(0, 190, 255, 0.18);
+        1px solid
+        rgba(0, 190, 255, 0.18);
 
     z-index: 1000;
+
 }
 
+
+/* ================================= */
+/* LOGO */
+/* ================================= */
+
 .logo {
-    font-size: 25px;
-    font-weight: bold;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
 
     color: #43d0ff;
 
+    text-decoration: none;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
     text-shadow:
-        0 0 15px rgba(50, 200, 255, 0.7);
+        0 0 15px
+        rgba(50, 200, 255, 0.7);
+
 }
 
+
+.logo img {
+
+    width: 45px;
+    height: 45px;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(0, 190, 255, 0.55)
+        );
+
+    transition: 0.3s;
+
+}
+
+
+.logo:hover img {
+
+    transform:
+        scale(1.08)
+        rotate(-3deg);
+
+    filter:
+        drop-shadow(
+            0 0 16px
+            rgba(0, 210, 255, 0.9)
+        );
+
+}
+
+
+.logo:hover {
+
+    color: #72ddff;
+
+}
+
+
+/* ================================= */
+/* NAVIGATION */
+/* ================================= */
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
 nav a {
+
     color: #c8edff;
 
     text-decoration: none;
@@ -308,13 +646,17 @@ nav a {
     margin-left: 30px;
 
     transition: 0.3s;
+
 }
 
+
 nav a:hover {
+
     color: #42caff;
 
     text-shadow:
         0 0 10px #00bfff;
+
 }
 
 
@@ -323,64 +665,115 @@ nav a:hover {
 /* ================================= */
 
 .hero {
+
     min-height: 100vh;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
 
-    padding: 120px 20px 60px;
+    padding:
+        120px 20px 60px;
 
     position: relative;
+
 }
 
+
 .hero-content {
+
     max-width: 900px;
 
-    padding: 45px;
+    padding: 50px;
 
     border-radius: 25px;
 
     background:
-        rgba(2, 20, 34, 0.25);
+        rgba(2, 20, 34, 0.28);
 
-    backdrop-filter: blur(4px);
+    backdrop-filter:
+        blur(5px);
 
     border:
-        1px solid rgba(94, 218, 255, 0.12);
+        1px solid
+        rgba(94, 218, 255, 0.13);
+
+    box-shadow:
+        0 30px 100px
+        rgba(0, 0, 0, 0.18);
+
+    animation:
+        heroAppear 1s ease forwards;
+
 }
 
 
-/* маленькая надпись */
+@keyframes heroAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* ================================= */
+/* VERSION */
+/* ================================= */
 
 .version {
+
     display: inline-block;
 
-    padding: 8px 18px;
+    padding:
+        8px 18px;
 
     margin-bottom: 20px;
 
     border-radius: 100px;
 
-    background: rgba(0, 174, 255, 0.12);
+    background:
+        rgba(0, 174, 255, 0.12);
 
     border:
-        1px solid rgba(0, 190, 255, 0.3);
+        1px solid
+        rgba(0, 190, 255, 0.3);
 
     color: #70dcff;
 
     font-size: 13px;
 
     letter-spacing: 3px;
+
 }
 
 
-/* Заголовок */
+/* ================================= */
+/* HERO TITLE */
+/* ================================= */
 
 .hero h1 {
-    font-size: clamp(55px, 9vw, 110px);
+
+    font-size:
+        clamp(55px, 9vw, 110px);
 
     line-height: 1;
 
@@ -395,29 +788,44 @@ nav a:hover {
         );
 
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
+    -webkit-text-fill-color:
+        transparent;
 
     text-shadow:
-        0 0 40px rgba(0, 174, 255, 0.2);
+        0 0 40px
+        rgba(0, 174, 255, 0.2);
+
 }
 
 
-/* Слоган */
+/* ================================= */
+/* SLOGAN */
+/* ================================= */
 
 .slogan {
-    font-size: 30px !important;
 
-    color: #ffffff !important;
+    font-size:
+        30px !important;
 
-    font-weight: bold;
+    color:
+        #ffffff !important;
 
-    margin-bottom: 20px !important;
+    font-weight:
+        bold;
+
+    margin-bottom:
+        20px !important;
+
 }
 
 
-/* описание */
+/* ================================= */
+/* DESCRIPTION */
+/* ================================= */
 
-.hero p {
+.description {
+
     font-size: 18px;
 
     color: #b1d8e9;
@@ -425,19 +833,37 @@ nav a:hover {
     line-height: 1.7;
 
     margin-bottom: 35px;
+
 }
 
 
 /* ================================= */
-/* BUTTON */
+/* BUTTONS */
 /* ================================= */
 
+.hero-buttons {
+
+    display: flex;
+
+    justify-content:
+        center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+
 .button {
+
     display: inline-block;
 
-    padding: 16px 35px;
+    padding:
+        16px 35px;
 
-    border-radius: 8px;
+    border-radius:
+        8px;
 
     background:
         linear-gradient(
@@ -446,26 +872,53 @@ nav a:hover {
             #006eff
         );
 
-    color: white;
+    color:
+        white;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
     border-bottom:
         4px solid #004fa8;
 
     box-shadow:
-        0 0 30px rgba(0, 153, 255, 0.35);
+        0 0 30px
+        rgba(0, 153, 255, 0.35);
 
-    transition: 0.25s;
+    transition:
+        0.25s;
+
 }
 
+
 .button:hover {
-    transform: translateY(-4px);
+
+    transform:
+        translateY(-4px);
 
     box-shadow:
-        0 0 50px rgba(0, 174, 255, 0.6);
+        0 0 50px
+        rgba(0, 174, 255, 0.6);
+
+}
+
+
+.button-secondary {
+
+    background:
+        rgba(5, 40, 60, 0.65);
+
+    border:
+        1px solid
+        rgba(0, 190, 255, 0.35);
+
+    border-bottom:
+        1px solid
+        rgba(0, 190, 255, 0.35);
+
 }
 
 
@@ -474,84 +927,31 @@ nav a:hover {
 /* ================================= */
 
 section {
-    padding: 110px 7%;
+
+    padding:
+        110px 7%;
+
 }
+
 
 .section-title {
-    text-align: center;
 
-    font-size: 42px;
+    text-align:
+        center;
 
-    margin-bottom: 50px;
+    font-size:
+        42px;
 
-    color: #54d4ff;
+    margin-bottom:
+        50px;
+
+    color:
+        #54d4ff;
 
     text-shadow:
-        0 0 20px rgba(0, 190, 255, 0.3);
-}
+        0 0 20px
+        rgba(0, 190, 255, 0.3);
 
-
-/* ================================= */
-/* FEATURES */
-/* ================================= */
-
-.features {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(240px, 1fr));
-
-    gap: 25px;
-
-    max-width: 1100px;
-
-    margin: auto;
-}
-
-.card {
-    padding: 30px;
-
-    background:
-        rgba(5, 31, 47, 0.72);
-
-    border:
-        1px solid rgba(0, 174, 255, 0.2);
-
-    border-radius: 15px;
-
-    backdrop-filter: blur(12px);
-
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-
-    border-color:
-        rgba(0, 200, 255, 0.6);
-
-    box-shadow:
-        0 15px 45px rgba(0, 140, 255, 0.15);
-}
-
-.card h3 {
-    color: #45caff;
-
-    margin-bottom: 12px;
-
-    font-size: 22px;
-}
-
-.card p {
-    color: #a7c9d8;
-
-    line-height: 1.6;
-}
-
-.icon {
-    font-size: 40px;
-
-    margin-bottom: 20px;
 }
 
 
@@ -560,19 +960,132 @@ section {
 /* ================================= */
 
 .about {
-    max-width: 900px;
 
-    margin: auto;
+    max-width:
+        900px;
 
-    text-align: center;
+    margin:
+        auto;
+
+    text-align:
+        center;
+
 }
 
+
 .about p {
-    color: #acd2e4;
 
-    font-size: 18px;
+    color:
+        #acd2e4;
 
-    line-height: 1.8;
+    font-size:
+        18px;
+
+    line-height:
+        1.8;
+
+}
+
+
+/* ================================= */
+/* FEATURES */
+/* ================================= */
+
+.features {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(240px, 1fr)
+        );
+
+    gap:
+        25px;
+
+    max-width:
+        1100px;
+
+    margin:
+        auto;
+
+}
+
+
+.card {
+
+    padding:
+        30px;
+
+    background:
+        rgba(5, 31, 47, 0.72);
+
+    border:
+        1px solid
+        rgba(0, 174, 255, 0.2);
+
+    border-radius:
+        15px;
+
+    backdrop-filter:
+        blur(12px);
+
+    transition:
+        0.3s;
+
+}
+
+
+.card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(0, 200, 255, 0.6);
+
+    box-shadow:
+        0 15px 45px
+        rgba(0, 140, 255, 0.15);
+
+}
+
+
+.card h3 {
+
+    color:
+        #45caff;
+
+    margin-bottom:
+        12px;
+
+    font-size:
+        22px;
+
+}
+
+
+.card p {
+
+    color:
+        #a7c9d8;
+
+    line-height:
+        1.6;
+
+}
+
+
+.icon {
+
+    font-size:
+        40px;
+
+    margin-bottom:
+        20px;
+
 }
 
 
@@ -581,40 +1094,86 @@ section {
 /* ================================= */
 
 .download {
-    text-align: center;
+
+    text-align:
+        center;
+
 }
 
+
 .download-box {
-    max-width: 700px;
 
-    margin: auto;
+    max-width:
+        700px;
 
-    padding: 55px 30px;
+    margin:
+        auto;
 
-    border-radius: 20px;
+    padding:
+        55px 30px;
+
+    border-radius:
+        20px;
 
     background:
         rgba(4, 35, 54, 0.7);
 
-    backdrop-filter: blur(15px);
+    backdrop-filter:
+        blur(15px);
 
     border:
-        1px solid rgba(0, 190, 255, 0.25);
+        1px solid
+        rgba(0, 190, 255, 0.25);
 
     box-shadow:
-        0 20px 80px rgba(0, 0, 0, 0.25);
+        0 20px 80px
+        rgba(0, 0, 0, 0.25);
+
 }
+
+
+.download-logo {
+
+    width:
+        80px;
+
+    height:
+        80px;
+
+    object-fit:
+        contain;
+
+    margin-bottom:
+        20px;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(0, 200, 255, 0.5)
+        );
+
+}
+
 
 .download-box h3 {
-    font-size: 30px;
 
-    margin-bottom: 15px;
+    font-size:
+        30px;
+
+    margin-bottom:
+        15px;
+
 }
 
-.download-box p {
-    color: #a9cce0;
 
-    margin-bottom: 30px;
+.download-box p {
+
+    color:
+        #a9cce0;
+
+    margin-bottom:
+        30px;
+
 }
 
 
@@ -623,21 +1182,63 @@ section {
 /* ================================= */
 
 footer {
-    padding: 30px;
 
-    text-align: center;
+    padding:
+        35px 20px;
 
-    color: #66899d;
+    text-align:
+        center;
+
+    color:
+        #66899d;
 
     border-top:
-        1px solid rgba(0, 174, 255, 0.12);
+        1px solid
+        rgba(0, 174, 255, 0.12);
 
     background:
-        rgba(1, 8, 14, 0.7);
+        rgba(1, 8, 14, 0.75);
+
 }
 
-footer span {
-    color: #36bfff;
+
+.footer-logo {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    margin-bottom:
+        12px;
+
+    color:
+        #36bfff;
+
+    font-weight:
+        bold;
+
+}
+
+
+.footer-logo img {
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    object-fit:
+        contain;
+
 }
 
 
@@ -648,35 +1249,119 @@ footer span {
 @media (max-width: 700px) {
 
     header {
-        padding: 18px 5%;
+
+        padding:
+            14px 5%;
+
     }
+
+
+    .logo {
+
+        font-size:
+            19px;
+
+    }
+
+
+    .logo img {
+
+        width:
+            36px;
+
+        height:
+            36px;
+
+    }
+
 
     nav a {
-        margin-left: 12px;
 
-        font-size: 14px;
+        margin-left:
+            12px;
+
+        font-size:
+            13px;
+
     }
+
 
     section {
-        padding: 80px 5%;
+
+        padding:
+            80px 5%;
+
     }
 
-    .hero h1 {
-        font-size: 52px;
+
+    .hero {
+
+        padding-top:
+            120px;
+
     }
+
 
     .hero-content {
-        padding: 25px 15px;
+
+        padding:
+            30px 18px;
+
     }
 
-    .moon {
-        width: 80px;
-        height: 80px;
 
-        right: 8%;
+    .hero h1 {
+
+        font-size:
+            52px;
+
     }
+
 
     .slogan {
-        font-size: 23px !important;
+
+        font-size:
+            23px !important;
+
     }
+
+
+    .description {
+
+        font-size:
+            16px;
+
+    }
+
+
+    .moon {
+
+        width:
+            80px;
+
+        height:
+            80px;
+
+        right:
+            8%;
+
+    }
+
+
+    .section-title {
+
+        font-size:
+            34px;
+
+    }
+
+
+    .features {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
 }
+```
