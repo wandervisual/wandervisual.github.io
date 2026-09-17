@@ -1,0 +1,682 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #020913;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* ================================= */
+/* MINECRAFT BACKGROUND */
+/* ================================= */
+
+.minecraft-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #020817 0%,
+            #061a32 38%,
+            #0876a5 68%,
+            #0ab7d1 82%,
+            #031019 100%
+        );
+}
+
+
+/* Синие облака/свечение */
+
+.minecraft-bg::before {
+    content: "";
+    position: absolute;
+
+    width: 900px;
+    height: 400px;
+
+    left: 50%;
+    bottom: 10%;
+
+    transform: translateX(-50%);
+
+    background: #00cfff;
+
+    filter: blur(130px);
+
+    opacity: 0.18;
+}
+
+
+/* ================================= */
+/* STARS */
+/* ================================= */
+
+.stars {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, #8edfff 1px, transparent 1px),
+        radial-gradient(circle, white 1px, transparent 1px);
+
+    background-size:
+        130px 130px,
+        190px 190px,
+        260px 260px;
+
+    background-position:
+        20px 30px,
+        80px 100px,
+        150px 50px;
+
+    opacity: 0.55;
+}
+
+
+/* ================================= */
+/* MOON */
+/* ================================= */
+
+.moon {
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    right: 12%;
+    top: 13%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffffff,
+            #b9ecff 60%,
+            #72c8ec
+        );
+
+    box-shadow:
+        0 0 30px #9cecff,
+        0 0 80px rgba(77, 208, 255, 0.45),
+        0 0 150px rgba(0, 174, 255, 0.2);
+}
+
+
+/* Кратеры луны */
+
+.moon::before {
+    content: "";
+
+    position: absolute;
+
+    width: 25px;
+    height: 25px;
+
+    left: 30px;
+    top: 25px;
+
+    border-radius: 50%;
+
+    background: rgba(65, 145, 180, 0.22);
+
+    box-shadow:
+        45px 10px 0 rgba(65, 145, 180, 0.15),
+        25px 55px 0 rgba(65, 145, 180, 0.17),
+        70px 65px 0 rgba(65, 145, 180, 0.13);
+}
+
+
+/* ================================= */
+/* MOUNTAINS */
+/* ================================= */
+
+.mountains {
+    position: absolute;
+
+    left: -10%;
+    bottom: 16%;
+
+    width: 120%;
+    height: 38%;
+
+    clip-path: polygon(
+        0 100%,
+        0 70%,
+        8% 50%,
+        15% 72%,
+        25% 35%,
+        34% 70%,
+        45% 25%,
+        56% 67%,
+        66% 38%,
+        76% 70%,
+        87% 30%,
+        100% 65%,
+        100% 100%
+    );
+}
+
+
+/* дальние горы */
+
+.mountains-back {
+    background: #06243b;
+
+    opacity: 0.85;
+
+    transform: scale(1.05);
+}
+
+
+/* ближние горы */
+
+.mountains-front {
+    bottom: 11%;
+
+    height: 32%;
+
+    background: #031522;
+
+    transform: scale(1.15);
+}
+
+
+/* ================================= */
+/* HORIZON */
+/* ================================= */
+
+.horizon {
+    position: absolute;
+
+    bottom: 8%;
+    left: 0;
+
+    width: 100%;
+    height: 170px;
+
+    background:
+        linear-gradient(
+            to top,
+            #020b12,
+            transparent
+        );
+
+    opacity: 0.9;
+}
+
+
+/* ================================= */
+/* GROUND */
+/* ================================= */
+
+.ground {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 14%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #071a20,
+            #02070b
+        );
+}
+
+
+/* Minecraft-like grass line */
+
+.ground::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 8px;
+
+    background: #123f36;
+
+    box-shadow:
+        0 0 20px rgba(24, 177, 150, 0.25);
+}
+
+
+/* ================================= */
+/* NAVIGATION */
+/* ================================= */
+
+header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 20px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(2, 10, 18, 0.55);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom:
+        1px solid rgba(0, 190, 255, 0.18);
+
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+
+    color: #43d0ff;
+
+    text-shadow:
+        0 0 15px rgba(50, 200, 255, 0.7);
+}
+
+nav a {
+    color: #c8edff;
+
+    text-decoration: none;
+
+    margin-left: 30px;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #42caff;
+
+    text-shadow:
+        0 0 10px #00bfff;
+}
+
+
+/* ================================= */
+/* HERO */
+/* ================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 120px 20px 60px;
+
+    position: relative;
+}
+
+.hero-content {
+    max-width: 900px;
+
+    padding: 45px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(2, 20, 34, 0.25);
+
+    backdrop-filter: blur(4px);
+
+    border:
+        1px solid rgba(94, 218, 255, 0.12);
+}
+
+
+/* маленькая надпись */
+
+.version {
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    margin-bottom: 20px;
+
+    border-radius: 100px;
+
+    background: rgba(0, 174, 255, 0.12);
+
+    border:
+        1px solid rgba(0, 190, 255, 0.3);
+
+    color: #70dcff;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+}
+
+
+/* Заголовок */
+
+.hero h1 {
+    font-size: clamp(55px, 9vw, 110px);
+
+    line-height: 1;
+
+    margin-bottom: 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #72e0ff,
+            #008cff
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 40px rgba(0, 174, 255, 0.2);
+}
+
+
+/* Слоган */
+
+.slogan {
+    font-size: 30px !important;
+
+    color: #ffffff !important;
+
+    font-weight: bold;
+
+    margin-bottom: 20px !important;
+}
+
+
+/* описание */
+
+.hero p {
+    font-size: 18px;
+
+    color: #b1d8e9;
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+
+/* ================================= */
+/* BUTTON */
+/* ================================= */
+
+.button {
+    display: inline-block;
+
+    padding: 16px 35px;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00bfff,
+            #006eff
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-bottom:
+        4px solid #004fa8;
+
+    box-shadow:
+        0 0 30px rgba(0, 153, 255, 0.35);
+
+    transition: 0.25s;
+}
+
+.button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 50px rgba(0, 174, 255, 0.6);
+}
+
+
+/* ================================= */
+/* SECTIONS */
+/* ================================= */
+
+section {
+    padding: 110px 7%;
+}
+
+.section-title {
+    text-align: center;
+
+    font-size: 42px;
+
+    margin-bottom: 50px;
+
+    color: #54d4ff;
+
+    text-shadow:
+        0 0 20px rgba(0, 190, 255, 0.3);
+}
+
+
+/* ================================= */
+/* FEATURES */
+/* ================================= */
+
+.features {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 25px;
+
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.card {
+    padding: 30px;
+
+    background:
+        rgba(5, 31, 47, 0.72);
+
+    border:
+        1px solid rgba(0, 174, 255, 0.2);
+
+    border-radius: 15px;
+
+    backdrop-filter: blur(12px);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(0, 200, 255, 0.6);
+
+    box-shadow:
+        0 15px 45px rgba(0, 140, 255, 0.15);
+}
+
+.card h3 {
+    color: #45caff;
+
+    margin-bottom: 12px;
+
+    font-size: 22px;
+}
+
+.card p {
+    color: #a7c9d8;
+
+    line-height: 1.6;
+}
+
+.icon {
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+
+/* ================================= */
+/* ABOUT */
+/* ================================= */
+
+.about {
+    max-width: 900px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.about p {
+    color: #acd2e4;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+/* ================================= */
+/* DOWNLOAD */
+/* ================================= */
+
+.download {
+    text-align: center;
+}
+
+.download-box {
+    max-width: 700px;
+
+    margin: auto;
+
+    padding: 55px 30px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(4, 35, 54, 0.7);
+
+    backdrop-filter: blur(15px);
+
+    border:
+        1px solid rgba(0, 190, 255, 0.25);
+
+    box-shadow:
+        0 20px 80px rgba(0, 0, 0, 0.25);
+}
+
+.download-box h3 {
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.download-box p {
+    color: #a9cce0;
+
+    margin-bottom: 30px;
+}
+
+
+/* ================================= */
+/* FOOTER */
+/* ================================= */
+
+footer {
+    padding: 30px;
+
+    text-align: center;
+
+    color: #66899d;
+
+    border-top:
+        1px solid rgba(0, 174, 255, 0.12);
+
+    background:
+        rgba(1, 8, 14, 0.7);
+}
+
+footer span {
+    color: #36bfff;
+}
+
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 18px 5%;
+    }
+
+    nav a {
+        margin-left: 12px;
+
+        font-size: 14px;
+    }
+
+    section {
+        padding: 80px 5%;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .hero-content {
+        padding: 25px 15px;
+    }
+
+    .moon {
+        width: 80px;
+        height: 80px;
+
+        right: 8%;
+    }
+
+    .slogan {
+        font-size: 23px !important;
+    }
+}
