@@ -1,4 +1,3 @@
-```css
 /* ================================= */
 /* RESET */
 /* ================================= */
@@ -6,26 +5,17 @@
 * {
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
 }
-
 
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     background: #020913;
-
     color: white;
-
     overflow-x: hidden;
 }
 
@@ -35,13 +25,13 @@ body {
 /* ================================= */
 
 .minecraft-bg {
-
     position: fixed;
-
     inset: 0;
 
-    z-index: -10;
+    width: 100%;
+    height: 100vh;
 
+    z-index: -10;
     overflow: hidden;
 
     background:
@@ -56,10 +46,9 @@ body {
 }
 
 
-/* Голубое свечение горизонта */
+/* Голубое свечение */
 
 .minecraft-bg::before {
-
     content: "";
 
     position: absolute;
@@ -70,16 +59,13 @@ body {
     left: 50%;
     bottom: 5%;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     background: #00cfff;
 
-    filter:
-        blur(140px);
+    filter: blur(140px);
 
     opacity: 0.18;
-
 }
 
 
@@ -88,9 +74,7 @@ body {
 /* ================================= */
 
 .stars {
-
     position: absolute;
-
     inset: 0;
 
     background-image:
@@ -114,13 +98,11 @@ body {
         );
 
     background-size:
-
         130px 130px,
         190px 190px,
         260px 260px;
 
     background-position:
-
         20px 30px,
         80px 100px,
         150px 50px;
@@ -129,30 +111,24 @@ body {
 
     animation:
         starsMove 50s linear infinite;
-
 }
 
 
 @keyframes starsMove {
 
     from {
-
         background-position:
             20px 30px,
             80px 100px,
             150px 50px;
-
     }
 
     to {
-
         background-position:
             320px 180px,
             -120px 300px,
             400px -100px;
-
     }
-
 }
 
 
@@ -161,7 +137,6 @@ body {
 /* ================================= */
 
 .moon {
-
     position: absolute;
 
     width: 130px;
@@ -181,78 +156,28 @@ body {
         );
 
     box-shadow:
-
         0 0 30px #9cecff,
-
-        0 0 80px
-        rgba(77, 208, 255, 0.45),
-
-        0 0 150px
-        rgba(0, 174, 255, 0.2);
+        0 0 80px rgba(77, 208, 255, 0.45),
+        0 0 150px rgba(0, 174, 255, 0.2);
 
     animation:
         moonGlow 4s ease-in-out infinite alternate;
-
 }
 
 
 @keyframes moonGlow {
 
     from {
-
         box-shadow:
-
             0 0 30px #9cecff,
-
-            0 0 70px
-            rgba(77, 208, 255, 0.35);
-
+            0 0 70px rgba(77, 208, 255, 0.35);
     }
 
     to {
-
         box-shadow:
-
             0 0 45px #9cecff,
-
-            0 0 110px
-            rgba(77, 208, 255, 0.55);
-
+            0 0 110px rgba(77, 208, 255, 0.55);
     }
-
-}
-
-
-/* Лунные кратеры */
-
-.moon::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 25px;
-    height: 25px;
-
-    left: 30px;
-    top: 25px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(65, 145, 180, 0.22);
-
-    box-shadow:
-
-        45px 10px 0
-        rgba(65, 145, 180, 0.15),
-
-        25px 55px 0
-        rgba(65, 145, 180, 0.17),
-
-        70px 65px 0
-        rgba(65, 145, 180, 0.13);
-
 }
 
 
@@ -261,7 +186,6 @@ body {
 /* ================================= */
 
 .cloud {
-
     position: absolute;
 
     width: 300px;
@@ -270,30 +194,23 @@ body {
     background:
         rgba(100, 220, 255, 0.06);
 
-    filter:
-        blur(15px);
+    filter: blur(15px);
 
     border-radius: 50%;
-
 }
 
 
 .cloud-1 {
-
     top: 30%;
-
     left: -350px;
 
     animation:
         cloudMove1 70s linear infinite;
-
 }
 
 
 .cloud-2 {
-
     top: 42%;
-
     left: -500px;
 
     width: 420px;
@@ -302,37 +219,32 @@ body {
 
     animation:
         cloudMove2 100s linear infinite;
-
 }
 
 
 @keyframes cloudMove1 {
 
     from {
-        transform:
-            translateX(0);
+        transform: translateX(0);
     }
 
     to {
         transform:
             translateX(calc(100vw + 700px));
     }
-
 }
 
 
 @keyframes cloudMove2 {
 
     from {
-        transform:
-            translateX(0);
+        transform: translateX(0);
     }
 
     to {
         transform:
             translateX(calc(100vw + 900px));
     }
-
 }
 
 
@@ -364,11 +276,8 @@ body {
             100% 65%,
             100% 100%
         );
-
 }
 
-
-/* Дальние */
 
 .mountains-back {
 
@@ -382,7 +291,21 @@ body {
 
     animation:
         mountainsBack 30s ease-in-out infinite alternate;
+}
 
+
+.mountains-front {
+
+    bottom: 11%;
+
+    height: 32%;
+
+    background: #031522;
+
+    transform: scale(1.15);
+
+    animation:
+        mountainsFront 20s ease-in-out infinite alternate;
 }
 
 
@@ -399,26 +322,6 @@ body {
             translateX(-25px)
             scale(1.05);
     }
-
-}
-
-
-/* Ближние */
-
-.mountains-front {
-
-    bottom: 11%;
-
-    height: 32%;
-
-    background: #031522;
-
-    transform:
-        scale(1.15);
-
-    animation:
-        mountainsFront 20s ease-in-out infinite alternate;
-
 }
 
 
@@ -435,7 +338,6 @@ body {
             translateX(20px)
             scale(1.15);
     }
-
 }
 
 
@@ -448,11 +350,9 @@ body {
     position: absolute;
 
     bottom: 8%;
-
     left: 0;
 
     width: 100%;
-
     height: 170px;
 
     background:
@@ -463,7 +363,6 @@ body {
         );
 
     opacity: 0.9;
-
 }
 
 
@@ -476,11 +375,9 @@ body {
     position: absolute;
 
     bottom: 0;
-
     left: 0;
 
     width: 100%;
-
     height: 14%;
 
     background:
@@ -489,7 +386,6 @@ body {
             #071a20,
             #02070b
         );
-
 }
 
 
@@ -500,11 +396,9 @@ body {
     position: absolute;
 
     top: 0;
-
     left: 0;
 
     width: 100%;
-
     height: 8px;
 
     background: #123f36;
@@ -512,7 +406,6 @@ body {
     box-shadow:
         0 0 20px
         rgba(24, 177, 150, 0.25);
-
 }
 
 
@@ -530,7 +423,7 @@ header {
     width: 100%;
 
     padding:
-        16px 7%;
+        15px 7%;
 
     display: flex;
 
@@ -551,7 +444,6 @@ header {
         rgba(0, 190, 255, 0.18);
 
     z-index: 1000;
-
 }
 
 
@@ -563,33 +455,48 @@ header {
 
     display: flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 12px;
+    gap:
+        10px;
 
-    color: #43d0ff;
+    color:
+        #43d0ff;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-size: 25px;
+    font-size:
+        25px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
     text-shadow:
         0 0 15px
         rgba(50, 200, 255, 0.7);
-
 }
 
 
+/* Кастомный размер logo.png */
+
 .logo img {
 
-    width: 45px;
-    height: 45px;
+    width:
+        40px;
 
-    object-fit: contain;
+    height:
+        40px;
 
-    border-radius: 8px;
+    object-fit:
+        contain;
+
+    display:
+        block;
+
+    border-radius:
+        7px;
 
     filter:
         drop-shadow(
@@ -597,15 +504,15 @@ header {
             rgba(0, 190, 255, 0.55)
         );
 
-    transition: 0.3s;
-
+    transition:
+        0.3s;
 }
 
 
 .logo:hover img {
 
     transform:
-        scale(1.08)
+        scale(1.1)
         rotate(-3deg);
 
     filter:
@@ -613,50 +520,47 @@ header {
             0 0 16px
             rgba(0, 210, 255, 0.9)
         );
-
-}
-
-
-.logo:hover {
-
-    color: #72ddff;
-
 }
 
 
 /* ================================= */
-/* NAVIGATION */
+/* NAV */
 /* ================================= */
 
 nav {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
-
+    align-items:
+        center;
 }
 
 
 nav a {
 
-    color: #c8edff;
+    color:
+        #c8edff;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    margin-left: 30px;
+    margin-left:
+        30px;
 
-    transition: 0.3s;
-
+    transition:
+        0.3s;
 }
 
 
 nav a:hover {
 
-    color: #42caff;
+    color:
+        #42caff;
 
     text-shadow:
-        0 0 10px #00bfff;
-
+        0 0 10px
+        #00bfff;
 }
 
 
@@ -666,31 +570,36 @@ nav a:hover {
 
 .hero {
 
-    min-height: 100vh;
+    min-height:
+        100vh;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    text-align: center;
+    text-align:
+        center;
 
     padding:
         120px 20px 60px;
-
-    position: relative;
-
 }
 
 
 .hero-content {
 
-    max-width: 900px;
+    max-width:
+        900px;
 
-    padding: 50px;
+    padding:
+        50px;
 
-    border-radius: 25px;
+    border-radius:
+        25px;
 
     background:
         rgba(2, 20, 34, 0.28);
@@ -702,36 +611,28 @@ nav a:hover {
         1px solid
         rgba(94, 218, 255, 0.13);
 
-    box-shadow:
-        0 30px 100px
-        rgba(0, 0, 0, 0.18);
-
     animation:
         heroAppear 1s ease forwards;
-
 }
 
 
 @keyframes heroAppear {
 
     from {
-
-        opacity: 0;
+        opacity:
+            0;
 
         transform:
             translateY(25px);
-
     }
 
     to {
-
-        opacity: 1;
+        opacity:
+            1;
 
         transform:
             translateY(0);
-
     }
-
 }
 
 
@@ -741,14 +642,17 @@ nav a:hover {
 
 .version {
 
-    display: inline-block;
+    display:
+        inline-block;
 
     padding:
         8px 18px;
 
-    margin-bottom: 20px;
+    margin-bottom:
+        20px;
 
-    border-radius: 100px;
+    border-radius:
+        100px;
 
     background:
         rgba(0, 174, 255, 0.12);
@@ -757,12 +661,14 @@ nav a:hover {
         1px solid
         rgba(0, 190, 255, 0.3);
 
-    color: #70dcff;
+    color:
+        #70dcff;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    letter-spacing: 3px;
-
+    letter-spacing:
+        3px;
 }
 
 
@@ -775,9 +681,11 @@ nav a:hover {
     font-size:
         clamp(55px, 9vw, 110px);
 
-    line-height: 1;
+    line-height:
+        1;
 
-    margin-bottom: 15px;
+    margin-bottom:
+        15px;
 
     background:
         linear-gradient(
@@ -787,15 +695,11 @@ nav a:hover {
             #008cff
         );
 
-    -webkit-background-clip: text;
+    -webkit-background-clip:
+        text;
 
     -webkit-text-fill-color:
         transparent;
-
-    text-shadow:
-        0 0 40px
-        rgba(0, 174, 255, 0.2);
-
 }
 
 
@@ -816,24 +720,22 @@ nav a:hover {
 
     margin-bottom:
         20px !important;
-
 }
 
 
-/* ================================= */
-/* DESCRIPTION */
-/* ================================= */
-
 .description {
 
-    font-size: 18px;
+    font-size:
+        18px;
 
-    color: #b1d8e9;
+    color:
+        #b1d8e9;
 
-    line-height: 1.7;
+    line-height:
+        1.7;
 
-    margin-bottom: 35px;
-
+    margin-bottom:
+        35px;
 }
 
 
@@ -843,21 +745,24 @@ nav a:hover {
 
 .hero-buttons {
 
-    display: flex;
+    display:
+        flex;
 
     justify-content:
         center;
 
-    gap: 15px;
+    gap:
+        15px;
 
-    flex-wrap: wrap;
-
+    flex-wrap:
+        wrap;
 }
 
 
 .button {
 
-    display: inline-block;
+    display:
+        inline-block;
 
     padding:
         16px 35px;
@@ -882,7 +787,8 @@ nav a:hover {
         bold;
 
     border-bottom:
-        4px solid #004fa8;
+        4px solid
+        #004fa8;
 
     box-shadow:
         0 0 30px
@@ -890,7 +796,6 @@ nav a:hover {
 
     transition:
         0.25s;
-
 }
 
 
@@ -902,7 +807,6 @@ nav a:hover {
     box-shadow:
         0 0 50px
         rgba(0, 174, 255, 0.6);
-
 }
 
 
@@ -914,11 +818,6 @@ nav a:hover {
     border:
         1px solid
         rgba(0, 190, 255, 0.35);
-
-    border-bottom:
-        1px solid
-        rgba(0, 190, 255, 0.35);
-
 }
 
 
@@ -930,7 +829,6 @@ section {
 
     padding:
         110px 7%;
-
 }
 
 
@@ -951,7 +849,6 @@ section {
     text-shadow:
         0 0 20px
         rgba(0, 190, 255, 0.3);
-
 }
 
 
@@ -969,7 +866,6 @@ section {
 
     text-align:
         center;
-
 }
 
 
@@ -983,7 +879,6 @@ section {
 
     line-height:
         1.8;
-
 }
 
 
@@ -1010,7 +905,6 @@ section {
 
     margin:
         auto;
-
 }
 
 
@@ -1034,7 +928,6 @@ section {
 
     transition:
         0.3s;
-
 }
 
 
@@ -1049,7 +942,6 @@ section {
     box-shadow:
         0 15px 45px
         rgba(0, 140, 255, 0.15);
-
 }
 
 
@@ -1063,7 +955,6 @@ section {
 
     font-size:
         22px;
-
 }
 
 
@@ -1074,7 +965,6 @@ section {
 
     line-height:
         1.6;
-
 }
 
 
@@ -1085,7 +975,6 @@ section {
 
     margin-bottom:
         20px;
-
 }
 
 
@@ -1097,7 +986,6 @@ section {
 
     text-align:
         center;
-
 }
 
 
@@ -1124,34 +1012,33 @@ section {
     border:
         1px solid
         rgba(0, 190, 255, 0.25);
-
-    box-shadow:
-        0 20px 80px
-        rgba(0, 0, 0, 0.25);
-
 }
 
+
+/* Размер logo в блоке скачивания */
 
 .download-logo {
 
     width:
-        80px;
+        75px;
 
     height:
-        80px;
+        75px;
 
     object-fit:
         contain;
 
-    margin-bottom:
-        20px;
+    display:
+        block;
+
+    margin:
+        0 auto 20px;
 
     filter:
         drop-shadow(
             0 0 15px
             rgba(0, 200, 255, 0.5)
         );
-
 }
 
 
@@ -1162,7 +1049,6 @@ section {
 
     margin-bottom:
         15px;
-
 }
 
 
@@ -1173,7 +1059,6 @@ section {
 
     margin-bottom:
         30px;
-
 }
 
 
@@ -1198,7 +1083,6 @@ footer {
 
     background:
         rgba(1, 8, 14, 0.75);
-
 }
 
 
@@ -1224,7 +1108,6 @@ footer {
 
     font-weight:
         bold;
-
 }
 
 
@@ -1238,7 +1121,6 @@ footer {
 
     object-fit:
         contain;
-
 }
 
 
@@ -1267,10 +1149,10 @@ footer {
     .logo img {
 
         width:
-            36px;
+            34px;
 
         height:
-            36px;
+            34px;
 
     }
 
@@ -1278,18 +1160,10 @@ footer {
     nav a {
 
         margin-left:
-            12px;
+            10px;
 
         font-size:
             13px;
-
-    }
-
-
-    section {
-
-        padding:
-            80px 5%;
 
     }
 
@@ -1364,4 +1238,3 @@ footer {
     }
 
 }
-```
