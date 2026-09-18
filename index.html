@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="WanderVisuals — Minecraft мод. Твой мир твои правила.">
 
     <title>WanderVisuals — Твой мир твои правила.</title>
 
@@ -15,77 +11,60 @@
 
 <body>
 
-    <!-- Minecraft background -->
+    <!-- ФОН -->
     <div class="minecraft-bg">
-
         <div class="stars"></div>
         <div class="moon"></div>
 
-        <div class="cloud cloud-1"></div>
-        <div class="cloud cloud-2"></div>
+        <div class="cloud-1"></div>
+        <div class="cloud-2"></div>
 
-        <div class="mountains mountains-back"></div>
-        <div class="mountains mountains-front"></div>
+        <div class="mountains-back"></div>
+        <div class="mountains-front"></div>
 
         <div class="horizon"></div>
         <div class="ground"></div>
-
     </div>
 
 
-    <!-- Header -->
+    <!-- HEADER -->
     <header>
 
-        <a href="#" class="logo">
-
-            <!-- LOGO ПЕРЕД ТЕКСТОМ -->
+        <a href="./index.html" class="logo">
             <img src="./logo.png" alt="WanderVisuals">
-
             <span>WanderVisuals</span>
-
         </a>
 
-
         <nav>
-
-            <a href="#about">О моде</a>
+            <a href="./index.html">Главная</a>
             <a href="#features">Возможности</a>
             <a href="#download">Скачать</a>
 
+            <!-- КНОПКА CONFIGS -->
+            <a href="./configs.html" class="configs-button">
+                ⚙ Configs
+            </a>
         </nav>
 
     </header>
 
 
-    <!-- Main -->
+    <!-- HERO -->
     <main>
 
-        <!-- Hero -->
         <section class="hero">
 
             <div class="hero-content">
 
-                <div class="version">
-                    MINECRAFT MOD
+                <div class="hero-logo">
+                    <img src="./logo.png" alt="WanderVisuals">
                 </div>
 
+                <h1>WanderVisuals</h1>
 
-                <h1>
-                    WanderVisuals
-                </h1>
-
-
-                <p class="slogan">
-                    Твой мир твои правила.
+                <p>
+                    Твой мир — твои правила.
                 </p>
-
-
-                <p class="description">
-                    Новый взгляд на Minecraft.<br>
-                    Атмосфера, визуальные эффекты
-                    и свобода, собранные в одном моде.
-                </p>
-
 
                 <div class="hero-buttons">
 
@@ -93,9 +72,8 @@
                         Скачать мод
                     </a>
 
-                    <a href="#features"
-                       class="button button-secondary">
-                        Возможности
+                    <a href="./configs.html" class="button secondary-button">
+                        ⚙ Конфиги
                     </a>
 
                 </div>
@@ -105,23 +83,21 @@
         </section>
 
 
-        <!-- About -->
-        <section id="about">
+        <!-- О МОДЕ -->
+        <section class="about">
 
             <h2 class="section-title">
-                О WanderVisuals
+                WanderVisuals
             </h2>
 
-            <div class="about">
+            <div class="card">
+
+                <h3>✨ Новый взгляд на Minecraft</h3>
 
                 <p>
-                    <strong>WanderVisuals</strong> —
-                    Minecraft-мод, созданный для тех,
-                    кто хочет сделать свой игровой мир
-                    красивее, атмосфернее и необычнее.
-                    <br><br>
-                    Настрой визуал под себя
-                    и играй так, как хочется именно тебе.
+                    WanderVisuals — это мод, созданный для того,
+                    чтобы сделать игровой мир красивее, атмосфернее
+                    и приятнее.
                 </p>
 
             </div>
@@ -129,77 +105,52 @@
         </section>
 
 
-        <!-- Features -->
+        <!-- FEATURES -->
         <section id="features">
 
             <h2 class="section-title">
                 Возможности
             </h2>
 
-
-            <div class="features">
+            <div class="cards">
 
                 <div class="card">
+                    <div class="card-icon">🌌</div>
 
-                    <div class="icon">✨</div>
-
-                    <h3>
-                        Визуальные эффекты
-                    </h3>
+                    <h3>Визуальные эффекты</h3>
 
                     <p>
-                        Улучшай внешний вид Minecraft
-                        с помощью современных визуальных эффектов.
+                        Красивые эффекты и улучшения визуальной
+                        части Minecraft.
                     </p>
-
                 </div>
 
 
                 <div class="card">
+                    <div class="card-icon">⚡</div>
 
-                    <div class="icon">⚡</div>
-
-                    <h3>
-                        Оптимизация
-                    </h3>
+                    <h3>Оптимизация</h3>
 
                     <p>
-                        Красивый Minecraft без лишней
-                        нагрузки на игровой процесс.
+                        Настройки позволяют подобрать оптимальный
+                        вариант под твой компьютер.
                     </p>
-
                 </div>
 
 
                 <div class="card">
+                    <div class="card-icon">⚙️</div>
 
-                    <div class="icon">🎨</div>
-
-                    <h3>
-                        Настройки
-                    </h3>
+                    <h3>Configs</h3>
 
                     <p>
-                        Настраивай внешний вид и эффекты
-                        под свой стиль игры.
+                        Удобная система конфигураций для настройки
+                        мода под себя.
                     </p>
 
-                </div>
-
-
-                <div class="card">
-
-                    <div class="icon">🌌</div>
-
-                    <h3>
-                        Атмосфера
-                    </h3>
-
-                    <p>
-                        Сделай привычный мир Minecraft
-                        совершенно другим.
-                    </p>
-
+                    <a href="./configs.html" class="card-link">
+                        Открыть конфиги →
+                    </a>
                 </div>
 
             </div>
@@ -207,36 +158,29 @@
         </section>
 
 
-        <!-- Download -->
-        <section id="download"
-                 class="download">
+        <!-- DOWNLOAD -->
+        <section id="download">
 
             <h2 class="section-title">
-                Скачать WanderVisuals
+                Скачать
             </h2>
 
+            <div class="download-card card">
 
-            <div class="download-box">
+                <img
+                    src="./logo.png"
+                    alt="WanderVisuals"
+                    class="download-logo"
+                >
 
-                <img src="./logo.png"
-                     class="download-logo"
-                     alt="WanderVisuals">
-
-
-                <h3>
-                    Готов изменить свой мир?
-                </h3>
-
+                <h3>WanderVisuals</h3>
 
                 <p>
-                    Скачай WanderVisuals и создай
-                    Minecraft таким, каким хочешь видеть его ты.
+                    Последняя версия мода.
                 </p>
 
-
-                <a href="#"
-                   class="button download-button">
-                    Скачать мод
+                <a href="#" class="button">
+                    Скачать .JAR
                 </a>
 
             </div>
@@ -246,22 +190,15 @@
     </main>
 
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
 
-        <div class="footer-logo">
-
-            <img src="./logo.png"
-                 alt="WanderVisuals">
-
-            <span>
-                WanderVisuals
-            </span>
-
-        </div>
+        <p>
+            © 2026 WanderVisuals
+        </p>
 
         <p>
-            © 2026 WanderVisuals · Твой мир твои правила.
+            Твой мир — твои правила.
         </p>
 
     </footer>
