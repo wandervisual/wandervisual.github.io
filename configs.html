@@ -3,149 +3,164 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>WanderVisuals — Configs</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Configs — WanderVisuals</title>
 
     <link rel="stylesheet" href="./style.css">
 
 </head>
 
+
 <body>
 
+
+    <!-- Minecraft Background -->
     <div class="minecraft-bg">
+
         <div class="stars"></div>
+
         <div class="moon"></div>
 
-        <div class="cloud-1"></div>
-        <div class="cloud-2"></div>
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
 
-        <div class="mountains-back"></div>
-        <div class="mountains-front"></div>
+        <div class="mountains mountains-back"></div>
+        <div class="mountains mountains-front"></div>
 
         <div class="horizon"></div>
         <div class="ground"></div>
+
     </div>
 
 
-    <header>
 
-        <a href="./index.html" class="logo">
+    <!-- Header -->
+    <header class="header">
 
-            <img src="./logo.png" alt="WanderVisuals">
-
-            <span>WanderVisuals</span>
-
-        </a>
-
-        <nav>
-
-            <a href="./index.html">
-                Главная
-            </a>
-
-            <a href="./configs.html" class="configs-button">
-                ⚙ Configs
-            </a>
-
-        </nav>
-
-    </header>
+        <div class="header-container">
 
 
-    <main>
-
-        <section class="configs-page">
-
-            <div class="configs-content">
+            <a href="./index.html" class="logo">
 
                 <img
                     src="./logo.png"
                     alt="WanderVisuals"
-                    class="configs-logo"
                 >
 
-                <h1>
-                    Configs
-                </h1>
+                <span>
+                    WanderVisuals
+                </span>
 
-                <p>
-                    Конфигурации WanderVisuals
+            </a>
+
+
+
+            <nav class="nav">
+
+                <a
+                    href="./index.html"
+                    class="nav-link"
+                >
+                    Главная
+                </a>
+
+
+                <a
+                    href="./index.html#features"
+                    class="nav-link"
+                >
+                    Возможности
+                </a>
+
+
+                <a
+                    href="./index.html#download"
+                    class="nav-link"
+                >
+                    Скачать
+                </a>
+
+
+                <a
+                    href="./configs.html"
+                    class="nav-link config-button active"
+                >
+                    <span>⚙</span>
+                    Configs
+                </a>
+
+            </nav>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- Configs -->
+    <main>
+
+        <section class="configs-page">
+
+            <div class="configs-container">
+
+
+                <p class="section-label">
+                    CONFIGS
                 </p>
 
 
-                <div class="config-grid">
+                <h1 class="configs-title">
+                    Конфиги ютуберов
+                </h1>
 
-                    <div class="card config-card">
 
-                        <div class="config-icon">
-                            ⚙️
-                        </div>
+                <p class="configs-description">
+                    Здесь появятся конфиги от ютуберов
+                    после релиза WanderVisuals.
+                </p>
 
-                        <h3>
-                            Основной конфиг
-                        </h3>
 
-                        <p>
-                            Стандартные настройки WanderVisuals.
-                        </p>
 
-                        <a href="#" class="button">
-                            Скачать
-                        </a>
+                <div class="configs-placeholder">
 
+                    <div class="placeholder-icon">
+                        ⚙️
                     </div>
 
 
-                    <div class="card config-card">
-
-                        <div class="config-icon">
-                            🚀
-                        </div>
-
-                        <h3>
-                            Performance
-                        </h3>
-
-                        <p>
-                            Настройки для максимальной
-                            производительности.
-                        </p>
-
-                        <a href="#" class="button">
-                            Скачать
-                        </a>
-
-                    </div>
+                    <h2>
+                        Скоро здесь будет больше
+                    </h2>
 
 
-                    <div class="card config-card">
+                    <p>
+                        После релиза мода здесь будут
+                        опубликованы конфиги популярных
+                        Minecraft-ютуберов.
+                    </p>
 
-                        <div class="config-icon">
-                            ✨
-                        </div>
 
-                        <h3>
-                            Visual
-                        </h3>
-
-                        <p>
-                            Максимальное качество визуальных
-                            эффектов.
-                        </p>
-
-                        <a href="#" class="button">
-                            Скачать
-                        </a>
-
-                    </div>
+                    <span class="coming-soon">
+                        COMING SOON
+                    </span>
 
                 </div>
 
 
-                <a href="./index.html" class="back-button">
+                <a
+                    href="./index.html"
+                    class="button button-secondary back-button"
+                >
                     ← Вернуться на главную
                 </a>
+
 
             </div>
 
@@ -154,17 +169,20 @@
     </main>
 
 
-    <footer>
+
+    <!-- Footer -->
+    <footer class="footer">
 
         <p>
             © 2026 WanderVisuals
         </p>
 
         <p>
-            Твой мир — твои правила.
+            Твой мир. Твои правила.
         </p>
 
     </footer>
+
 
 </body>
 </html>
