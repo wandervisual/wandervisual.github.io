@@ -1,7 +1,6 @@
-/* =========================================================
-   WanderVisuals
-   Dark Gray + Blue Theme
-   ========================================================= */
+/* =========================
+   ROOT
+========================= */
 
 :root {
     --blue: #3b82c4;
@@ -36,9 +35,9 @@
 }
 
 
-/* =========================================================
+/* =========================
    RESET
-   ========================================================= */
+========================= */
 
 * {
     margin: 0;
@@ -51,6 +50,12 @@ html {
 }
 
 body {
+    min-height: 100vh;
+
+    background: var(--bg-dark);
+
+    color: var(--text);
+
     font-family:
         Inter,
         system-ui,
@@ -59,11 +64,11 @@ body {
         "Segoe UI",
         sans-serif;
 
-    background: var(--bg-dark);
-    color: var(--text);
-
-    min-height: 100vh;
     overflow-x: hidden;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 a {
@@ -71,25 +76,30 @@ a {
     text-decoration: none;
 }
 
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
+button {
+    font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
 }
 
 
-/* =========================================================
+/* =========================
    CONTAINER
-   ========================================================= */
+========================= */
 
 .container {
     width: min(1180px, calc(100% - 40px));
+
     margin: 0 auto;
 }
 
 
-/* =========================================================
+/* =========================
    BACKGROUND
-   ========================================================= */
+========================= */
 
 .background {
     position: fixed;
@@ -102,281 +112,251 @@ a {
     background:
         radial-gradient(
             circle at 50% 20%,
-            rgba(49, 91, 125, 0.13),
+            rgba(43, 84, 120, 0.18),
             transparent 42%
         ),
         linear-gradient(
-            180deg,
-            #06090d 0%,
-            #0a0f15 55%,
-            #080c11 100%
+            to bottom,
+            #070b10 0%,
+            #090d12 50%,
+            #05070a 100%
         );
 }
 
 
-/* =========================================================
+/* =========================
    STARS
-   ========================================================= */
+========================= */
 
 .stars {
     position: absolute;
     inset: 0;
 
-    opacity: 0.65;
+    opacity: 0.5;
 
     background-image:
-        radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px),
-        radial-gradient(circle, rgba(125,176,215,0.45) 1px, transparent 1px);
-
-    background-size:
-        120px 120px,
-        190px 190px;
-
-    background-position:
-        0 0,
-        40px 60px;
-
-    animation: starsMove 35s linear infinite;
+        radial-gradient(
+            1px 1px at 10% 20%,
+            rgba(255, 255, 255, 0.65),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 30% 35%,
+            rgba(255, 255, 255, 0.45),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 50% 15%,
+            rgba(255, 255, 255, 0.6),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 70% 30%,
+            rgba(255, 255, 255, 0.5),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 90% 18%,
+            rgba(255, 255, 255, 0.4),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 20% 60%,
+            rgba(255, 255, 255, 0.35),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 80% 55%,
+            rgba(255, 255, 255, 0.35),
+            transparent
+        );
 }
 
-@keyframes starsMove {
-    from {
-        transform: translateY(0);
-    }
 
-    to {
-        transform: translateY(80px);
-    }
-}
-
-
-/* =========================================================
+/* =========================
    MOON
-   ========================================================= */
+========================= */
 
 .moon {
     position: absolute;
 
-    top: 90px;
-    right: 13%;
+    top: 100px;
+    right: 12%;
 
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
-            circle at 35% 35%,
-            #ffffff 0%,
-            #dce4eb 55%,
-            #aeb9c4 100%
+            circle at 35% 30%,
+            #dce7f0,
+            #9aaaba 65%,
+            #667685 100%
         );
 
+    opacity: 0.75;
+
     box-shadow:
-        0 0 25px rgba(214, 227, 238, 0.35),
-        0 0 70px rgba(80, 132, 172, 0.18);
+        0 0 40px rgba(155, 190, 215, 0.15),
+        0 0 100px rgba(95, 145, 180, 0.08);
 }
 
 
-/* =========================================================
+/* =========================
    CLOUDS
-   ========================================================= */
+========================= */
 
 .cloud {
     position: absolute;
 
-    height: 30px;
-
-    border-radius: 30px;
-
-    background: rgba(90, 105, 120, 0.10);
-
-    filter: blur(1px);
-
-    opacity: 0.6;
-}
-
-.cloud::before,
-.cloud::after {
-    content: "";
-
-    position: absolute;
-
-    background: inherit;
+    width: 320px;
+    height: 80px;
 
     border-radius: 50%;
-}
 
-.cloud::before {
-    width: 70px;
-    height: 50px;
+    background: rgba(57, 73, 88, 0.12);
 
-    left: 30px;
-    bottom: 0;
-}
-
-.cloud::after {
-    width: 90px;
-    height: 60px;
-
-    right: 30px;
-    bottom: 0;
+    filter: blur(20px);
 }
 
 .cloud-1 {
-    top: 24%;
-    left: -100px;
-
-    width: 240px;
-
-    animation: cloudMove 55s linear infinite;
+    top: 180px;
+    left: 5%;
 }
 
 .cloud-2 {
-    top: 34%;
-    left: -300px;
+    top: 260px;
+    right: 8%;
 
-    width: 180px;
-
-    opacity: 0.35;
-
-    animation: cloudMove 75s linear infinite;
-}
-
-@keyframes cloudMove {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(calc(100vw + 500px));
-    }
+    width: 400px;
 }
 
 
-/* =========================================================
+/* =========================
    MOUNTAINS
-   ========================================================= */
+========================= */
 
 .mountains {
     position: absolute;
 
-    left: -5%;
-    bottom: 17%;
+    bottom: 0;
+    left: 0;
 
-    width: 110%;
-    height: 250px;
+    width: 100%;
+    height: 40%;
+
+    opacity: 0.45;
 
     background:
         linear-gradient(
             135deg,
-            transparent 50%,
-            #111820 50%
-        ) 0 100% / 30% 100% no-repeat,
-
+            transparent 35%,
+            rgba(15, 25, 35, 0.95) 35%,
+            rgba(15, 25, 35, 0.95) 48%,
+            transparent 48%
+        ),
         linear-gradient(
-            45deg,
-            transparent 50%,
-            #141c25 50%
-        ) 25% 100% / 35% 100% no-repeat,
+            225deg,
+            transparent 35%,
+            rgba(10, 18, 26, 0.95) 35%,
+            rgba(10, 18, 26, 0.95) 52%,
+            transparent 52%
+        );
 
-        linear-gradient(
-            135deg,
-            transparent 50%,
-            #10171f 50%
-        ) 55% 100% / 35% 100% no-repeat,
-
-        linear-gradient(
-            45deg,
-            transparent 50%,
-            #0d141b 50%
-        ) 75% 100% / 30% 100% no-repeat;
+    background-size: 600px 300px;
+    background-position: center bottom;
 }
 
 
-/* =========================================================
+/* =========================
    HORIZON
-   ========================================================= */
+========================= */
 
 .horizon {
     position: absolute;
 
+    bottom: 22%;
+
     left: 0;
-    right: 0;
-    bottom: 16%;
 
-    height: 3px;
+    width: 100%;
+    height: 2px;
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(64, 120, 160, 0.55),
-        rgba(103, 157, 195, 0.7),
-        rgba(64, 120, 160, 0.55),
-        transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(69, 119, 157, 0.35),
+            transparent
+        );
 
     box-shadow:
-        0 0 18px rgba(52, 115, 160, 0.25);
+        0 0 30px rgba(57, 112, 151, 0.12);
 }
 
 
-/* =========================================================
+/* =========================
    GROUND
-   ========================================================= */
+========================= */
 
 .ground {
     position: absolute;
 
-    left: 0;
-    right: 0;
     bottom: 0;
+    left: 0;
 
-    height: 17%;
+    width: 100%;
+    height: 25%;
 
     background:
         linear-gradient(
-            180deg,
-            #0d141b,
-            #080b0f
+            to bottom,
+            rgba(8, 13, 18, 0),
+            rgba(3, 5, 8, 0.95)
         );
 }
 
 
-/* =========================================================
+/* =========================
    HEADER
-   ========================================================= */
+========================= */
 
 .header {
-    position: relative;
+    position: fixed;
 
-    z-index: 10;
+    top: 0;
+    left: 0;
 
     width: 100%;
 
-    background: rgba(7, 10, 14, 0.76);
+    z-index: 1000;
 
-    border-bottom: 1px solid rgba(84, 120, 149, 0.16);
+    background:
+        rgba(6, 9, 13, 0.82);
 
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    border-bottom:
+        1px solid rgba(82, 128, 166, 0.14);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
 .header-inner {
-    min-height: 78px;
+    min-height: 76px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    gap: 25px;
+    gap: 30px;
 }
 
 
-/* =========================================================
+/* =========================
    LOGO
-   ========================================================= */
+========================= */
 
 .logo {
     display: flex;
@@ -384,51 +364,31 @@ a {
 
     gap: 11px;
 
-    font-size: 20px;
-    font-weight: 800;
+    font-size: 19px;
+    font-weight: 700;
 
-    letter-spacing: -0.4px;
+    letter-spacing: -0.02em;
 
     white-space: nowrap;
-
-    transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
-}
-
-.logo:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
 }
 
 .logo img {
-    width: 39px;
-    height: 39px;
+    width: 38px;
+    height: 38px;
 
     object-fit: contain;
 
-    filter:
-        drop-shadow(0 0 8px rgba(103, 157, 195, 0.22));
+    border-radius: 9px;
 }
 
 .logo span {
-    background: linear-gradient(
-        135deg,
-        #f4f6f8,
-        #aebdca 48%,
-        #6697bc
-    );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
+    color: var(--text);
 }
 
 
-/* =========================================================
-   NAV
-   ========================================================= */
+/* =========================
+   NAVIGATION
+========================= */
 
 .nav {
     display: flex;
@@ -440,163 +400,106 @@ a {
 .nav-link {
     position: relative;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    padding: 10px 14px;
 
-    min-height: 40px;
+    color: var(--text-muted);
 
-    padding: 0 15px;
+    font-size: 14px;
+    font-weight: 500;
 
     border-radius: 9px;
 
-    color: #9ca8b4;
-
-    font-size: 14px;
-    font-weight: 600;
-
     transition:
         color 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
-
-    border: 1px solid transparent;
+        background 0.2s ease;
 }
 
 .nav-link:hover {
-    color: #e8eef3;
+    color: var(--text);
 
-    background: rgba(67, 104, 132, 0.12);
-
-    border-color: rgba(86, 133, 166, 0.18);
-
-    transform: translateY(-1px);
+    background:
+        rgba(59, 130, 196, 0.08);
 }
 
 .nav-link.active {
-    color: #dbeaf5;
+    color: var(--text);
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(48, 75, 96, 0.45),
-            rgba(39, 83, 116, 0.35)
-        );
-
-    border-color: rgba(83, 137, 174, 0.28);
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.04);
+        rgba(59, 130, 196, 0.1);
 }
 
-
-/* =========================================================
-   CONFIG BUTTON
-   ========================================================= */
-
 .config-button {
-    color: #8db7d6;
-
-    border-color: rgba(68, 120, 158, 0.22);
-
-    background: rgba(35, 66, 91, 0.16);
+    border:
+        1px solid rgba(59, 130, 196, 0.2);
 }
 
 .config-button span {
-    margin-right: 6px;
-
-    color: #74a8cc;
-}
-
-.config-button:hover {
-    color: #d9edf9;
-
-    background: rgba(45, 89, 120, 0.25);
-
-    border-color: rgba(83, 146, 190, 0.38);
+    margin-right: 4px;
 }
 
 
-/* =========================================================
+/* =========================
    HERO
-   ========================================================= */
+========================= */
 
 .hero {
-    position: relative;
-
-    min-height: 680px;
+    min-height: 100vh;
 
     display: flex;
     align-items: center;
 
-    padding: 100px 0 120px;
+    padding:
+        130px 0 90px;
 }
 
 .hero-content {
-    max-width: 900px;
+    max-width: 850px;
 }
-
 
 .hero-badge {
     display: inline-flex;
     align-items: center;
 
+    margin-bottom: 25px;
     padding: 8px 13px;
 
-    margin-bottom: 22px;
+    border:
+        1px solid rgba(111, 168, 216, 0.2);
 
-    border-radius: 7px;
+    border-radius: 999px;
 
-    color: #82afd0;
+    background:
+        rgba(35, 71, 101, 0.18);
+
+    color: var(--blue-light);
 
     font-size: 11px;
-    font-weight: 800;
+    font-weight: 700;
 
-    letter-spacing: 1.6px;
-
-    background: rgba(50, 86, 112, 0.17);
-
-    border: 1px solid rgba(77, 130, 165, 0.25);
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.03);
+    letter-spacing: 0.14em;
 }
 
-
 .hero h1 {
-    max-width: 800px;
+    margin-bottom: 25px;
 
-    font-size: clamp(48px, 7vw, 86px);
+    font-size:
+        clamp(50px, 8vw, 88px);
 
     line-height: 0.98;
 
-    letter-spacing: -4px;
+    letter-spacing: -0.055em;
 
-    font-weight: 900;
-
-    color: #f2f5f7;
+    font-weight: 800;
 }
 
 .hero h1 span {
-    background: linear-gradient(
-        135deg,
-        #b9c7d2 0%,
-        #689bc1 55%,
-        #3c7098 100%
-    );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
+    color: var(--blue-light);
 }
-
 
 .hero-description {
     max-width: 650px;
 
-    margin-top: 28px;
+    margin-bottom: 35px;
 
     color: var(--text-muted);
 
@@ -605,22 +508,22 @@ a {
 }
 
 
-/* =========================================================
+/* =========================
    BUTTONS
-   ========================================================= */
+========================= */
 
-.hero-buttons,
-.download-buttons {
+.hero-buttons {
     display: flex;
     align-items: center;
 
     gap: 12px;
 
-    margin-top: 34px;
+    flex-wrap: wrap;
 }
 
 .button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -628,18 +531,16 @@ a {
 
     padding: 0 22px;
 
-    border-radius: 9px;
+    border-radius: 10px;
 
     font-size: 14px;
-    font-weight: 750;
-
-    border: 1px solid transparent;
+    font-weight: 700;
 
     transition:
         transform 0.2s ease,
-        box-shadow 0.2s ease,
         background 0.2s ease,
-        border-color 0.2s ease;
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .button:hover {
@@ -647,90 +548,90 @@ a {
 }
 
 .button-primary {
-    color: #f3f7fa;
+    border:
+        1px solid rgba(111, 168, 216, 0.25);
 
     background:
         linear-gradient(
             135deg,
-            #315a7a,
-            #3975a3
+            #315f88,
+            #274d70
         );
 
-    border-color: rgba(118, 172, 207, 0.28);
+    color: #ffffff;
 
     box-shadow:
-        0 8px 25px rgba(37, 86, 119, 0.25);
+        0 8px 25px rgba(31, 79, 116, 0.18);
 }
 
 .button-primary:hover {
     background:
         linear-gradient(
             135deg,
-            #39698d,
-            #4385b5
+            #3b6f9c,
+            #2c577e
         );
 
     box-shadow:
-        0 12px 32px rgba(42, 102, 142, 0.32);
+        0 10px 30px rgba(31, 79, 116, 0.28);
 }
 
 .button-secondary {
-    color: #bdc8d1;
+    border:
+        1px solid rgba(82, 128, 166, 0.28);
 
-    background: rgba(21, 28, 36, 0.7);
+    background:
+        rgba(18, 25, 33, 0.65);
 
-    border-color: rgba(94, 121, 143, 0.28);
+    color: var(--text);
 }
 
 .button-secondary:hover {
-    color: #edf3f7;
+    background:
+        rgba(35, 47, 59, 0.75);
 
-    background: rgba(34, 45, 57, 0.85);
-
-    border-color: rgba(105, 146, 173, 0.42);
+    border-color:
+        rgba(82, 128, 166, 0.45);
 }
 
 
-/* =========================================================
+/* =========================
    SECTIONS
-   ========================================================= */
+========================= */
 
 .section {
-    position: relative;
-
-    padding: 100px 0;
+    padding: 110px 0;
 }
 
 .section-heading {
     max-width: 650px;
 
-    margin-bottom: 45px;
+    margin-bottom: 50px;
 }
 
 .section-label {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 
-    color: #6f9cbd;
+    color: var(--blue-light);
 
     font-size: 11px;
     font-weight: 800;
 
-    letter-spacing: 2px;
+    letter-spacing: 0.16em;
 }
 
 .section-heading h2 {
-    font-size: clamp(32px, 5vw, 50px);
+    margin-bottom: 12px;
+
+    font-size:
+        clamp(34px, 5vw, 52px);
 
     line-height: 1.05;
 
-    letter-spacing: -2px;
-
-    color: #e9eef2;
+    letter-spacing: -0.04em;
 }
 
 .section-heading p {
-    margin-top: 14px;
-
     color: var(--text-muted);
 
     font-size: 16px;
@@ -738,41 +639,36 @@ a {
 }
 
 
-/* =========================================================
+/* =========================
    FEATURES
-   ========================================================= */
+========================= */
 
 .features-grid {
     display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns:
+        repeat(4, 1fr);
 
     gap: 16px;
 }
 
 .feature-card {
-    min-height: 270px;
+    min-height: 250px;
 
     padding: 28px;
 
-    border-radius: 14px;
-
     background:
-        linear-gradient(
-            145deg,
-            rgba(20, 27, 35, 0.9),
-            rgba(14, 19, 25, 0.9)
-        );
+        var(--bg-card);
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
-    box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.18);
+    border-radius: 16px;
 
     transition:
         transform 0.25s ease,
-        border-color 0.25s ease,
         background 0.25s ease,
+        border-color 0.25s ease,
         box-shadow 0.25s ease;
 }
 
@@ -780,71 +676,57 @@ a {
     transform: translateY(-6px);
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(27, 37, 47, 0.95),
-            rgba(16, 24, 32, 0.95)
-        );
+        var(--bg-card-hover);
 
-    border-color: var(--border-blue);
+    border-color:
+        var(--border-blue);
 
     box-shadow:
-        0 18px 50px rgba(0, 0, 0, 0.28),
         var(--shadow-blue);
 }
 
-
 .feature-icon {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 25px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 22px;
-
-    border-radius: 11px;
-
-    font-size: 22px;
+    border-radius: 12px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(65, 94, 117, 0.28),
-            rgba(39, 79, 108, 0.35)
-        );
+        rgba(59, 130, 196, 0.1);
 
-    border: 1px solid rgba(87, 133, 163, 0.25);
+    border:
+        1px solid rgba(59, 130, 196, 0.18);
 
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.04);
+    font-size: 23px;
 }
 
 .feature-card h3 {
     margin-bottom: 10px;
 
-    color: #e7edf2;
-
     font-size: 18px;
-    font-weight: 750;
 }
 
 .feature-card p {
-    color: #929da8;
+    color: var(--text-muted);
 
     font-size: 14px;
     line-height: 1.65;
 }
 
 
-/* =========================================================
+/* =========================
    DOWNLOAD
-   ========================================================= */
+========================= */
 
 .download-section {
-    padding-top: 70px;
-    padding-bottom: 120px;
+    padding-top: 80px;
+    padding-bottom: 130px;
 }
 
 .download-box {
@@ -854,20 +736,20 @@ a {
 
     padding: 70px 60px;
 
-    border-radius: 18px;
+    border:
+        1px solid var(--border-blue);
+
+    border-radius: 22px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(25, 34, 43, 0.96),
-            rgba(20, 42, 59, 0.96)
+            rgba(24, 34, 44, 0.95),
+            rgba(17, 29, 41, 0.92)
         );
 
-    border: 1px solid rgba(77, 128, 163, 0.28);
-
     box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.28),
-        0 0 60px rgba(46, 101, 137, 0.08);
+        0 0 60px rgba(39, 94, 135, 0.08);
 }
 
 .download-box::before {
@@ -875,70 +757,78 @@ a {
 
     position: absolute;
 
+    top: -150px;
+    right: -150px;
+
     width: 350px;
     height: 350px;
-
-    top: -180px;
-    right: -100px;
 
     border-radius: 50%;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(70, 133, 174, 0.17),
-            transparent 70%
-        );
+        rgba(59, 130, 196, 0.08);
+
+    filter: blur(40px);
 
     pointer-events: none;
 }
 
 .download-content {
     position: relative;
-
     z-index: 1;
 
     max-width: 650px;
 }
 
-.download-box h2 {
-    font-size: clamp(34px, 5vw, 52px);
+.download-content h2 {
+    margin-bottom: 15px;
 
-    line-height: 1;
+    font-size:
+        clamp(34px, 5vw, 50px);
 
-    letter-spacing: -2px;
+    line-height: 1.05;
 
-    color: #edf2f5;
+    letter-spacing: -0.04em;
 }
 
-.download-box p {
-    margin-top: 15px;
+.download-content p {
+    margin-bottom: 28px;
 
-    color: #a4afb9;
+    color: var(--text-muted);
 
     font-size: 16px;
     line-height: 1.6;
 }
 
+.download-buttons {
+    display: flex;
+    flex-wrap: wrap;
 
-/* =========================================================
+    gap: 12px;
+}
+
+.download-buttons .button {
+    border: none;
+
+    cursor: pointer;
+}
+
+
+/* =========================
    FOOTER
-   ========================================================= */
+========================= */
 
 .footer {
-    position: relative;
+    padding: 30px 0;
 
-    border-top: 1px solid rgba(84, 111, 132, 0.16);
+    border-top:
+        1px solid rgba(82, 128, 166, 0.12);
 
-    background: rgba(5, 8, 11, 0.86);
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background:
+        rgba(4, 7, 10, 0.75);
 }
 
 .footer-inner {
-    min-height: 90px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -950,280 +840,415 @@ a {
     display: flex;
     align-items: center;
 
-    gap: 9px;
+    gap: 10px;
 
-    font-size: 15px;
-    font-weight: 750;
-
-    color: #d8e0e6;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .footer-brand img {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
 
-    object-fit: contain;
-
-    filter:
-        drop-shadow(0 0 7px rgba(92, 145, 181, 0.18));
+    border-radius: 7px;
 }
 
-.footer p {
-    color: #697580;
+.footer-inner p {
+    color: var(--text-muted);
 
     font-size: 12px;
 }
 
 
-/* =========================================================
-   CONFIGS PAGE
-   ========================================================= */
+/* =========================
+   DOWNLOAD MODAL
+========================= */
 
-.configs-page {
-    min-height: calc(100vh - 168px);
-
-    padding: 110px 0 100px;
+.modal-open {
+    overflow: hidden;
 }
 
-.configs-header {
+.download-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.download-modal.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================
+   MODAL OVERLAY
+========================= */
+
+.download-modal-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(3, 6, 10, 0.78);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* =========================
+   MODAL BOX
+========================= */
+
+.download-modal-box {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    max-width: 460px;
+
+    padding: 38px 32px 32px;
+
     text-align: center;
-
-    margin-bottom: 45px;
-}
-
-.configs-header h1 {
-    font-size: clamp(42px, 6vw, 70px);
-
-    line-height: 1;
-
-    letter-spacing: -3px;
-
-    color: #edf2f5;
-}
-
-.configs-header h1 span {
-    display: block;
-
-    margin-top: 6px;
-
-    background: linear-gradient(
-        135deg,
-        #b8c5cf,
-        #5e91b7
-    );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-}
-
-
-/* =========================================================
-   COMING SOON
-   ========================================================= */
-
-.coming-soon {
-    max-width: 700px;
-
-    margin: 0 auto;
-
-    padding: 60px 35px;
-
-    text-align: center;
-
-    border-radius: 16px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(20, 28, 36, 0.93),
-            rgba(14, 20, 27, 0.93)
+            rgba(25, 32, 41, 0.98),
+            rgba(12, 17, 23, 0.98)
         );
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border-blue);
+
+    border-radius: 18px;
 
     box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.25);
+        0 25px 80px rgba(0, 0, 0, 0.55),
+        0 0 40px rgba(52, 111, 163, 0.14);
+
+    transform:
+        translateY(20px)
+        scale(0.96);
+
+    transition:
+        transform 0.25s ease;
+}
+
+.download-modal.active .download-modal-box {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================
+   MODAL ICON
+========================= */
+
+.download-modal-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(59, 130, 196, 0.12);
+
+    border:
+        1px solid rgba(59, 130, 196, 0.3);
+
+    color:
+        var(--blue-light);
+
+    font-size: 27px;
+}
+
+
+/* =========================
+   MODAL TEXT
+========================= */
+
+.download-modal-box h2 {
+    margin: 0 0 12px;
+
+    color: var(--text);
+
+    font-size: 25px;
+
+    line-height: 1.25;
+}
+
+.download-modal-box p {
+    max-width: 360px;
+
+    margin: 0 auto 26px;
+
+    color: var(--text-muted);
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   MODAL OK BUTTON
+========================= */
+
+.download-modal-box .button {
+    border: none;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   MODAL CLOSE BUTTON
+========================= */
+
+.download-modal-close {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--text-muted);
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.download-modal-close:hover {
+    color: var(--text);
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================
+   CONFIGS PAGE
+========================= */
+
+.configs-page {
+    min-height: calc(100vh - 136px);
+
+    padding:
+        150px 0 100px;
+
+    display: flex;
+    align-items: flex-start;
+}
+
+.configs-header {
+    margin-bottom: 40px;
+}
+
+.configs-header h1 {
+    font-size:
+        clamp(38px, 6vw, 64px);
+
+    line-height: 1;
+
+    letter-spacing: -0.045em;
+}
+
+.configs-header h1 span {
+    color: var(--blue-light);
+}
+
+
+/* =========================
+   COMING SOON
+========================= */
+
+.coming-soon {
+    max-width: 650px;
+
+    padding: 45px;
+
+    text-align: center;
+
+    background:
+        var(--bg-card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow:
+        var(--shadow-blue);
 }
 
 .coming-soon h2 {
-    font-size: clamp(27px, 4vw, 38px);
+    margin-bottom: 12px;
 
-    letter-spacing: -1px;
-
-    color: #e9eef2;
+    font-size: 28px;
 }
 
 .coming-soon p {
-    margin-top: 13px;
+    margin-bottom: 25px;
 
-    color: #929da7;
+    color: var(--text-muted);
 
-    font-size: 15px;
     line-height: 1.6;
 }
 
 .back-button {
-    margin-top: 28px;
+    display: inline-flex;
 }
 
 
-/* =========================================================
-   TABLET
-   ========================================================= */
+/* =========================
+   RESPONSIVE
+========================= */
 
-@media (min-width: 769px) and (max-width: 1100px) {
+@media (max-width: 1000px) {
 
-    .container {
-        width: min(940px, calc(100% - 32px));
+    .features-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
     .header-inner {
-        min-height: 72px;
-    }
-
-    .logo {
-        font-size: 18px;
-    }
-
-    .logo img {
-        width: 35px;
-        height: 35px;
-    }
-
-    .nav {
-        gap: 5px;
+        gap: 15px;
     }
 
     .nav-link {
-        min-height: 38px;
-
-        padding: 0 11px;
-
-        font-size: 13px;
+        padding: 9px 10px;
     }
 
-    .hero {
-        min-height: 600px;
-
-        padding: 90px 0 100px;
-    }
-
-    .hero h1 {
-        font-size: clamp(52px, 8vw, 76px);
-    }
-
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .download-box {
-        padding: 55px 45px;
-    }
 }
 
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
+@media (max-width: 760px) {
 
-@media (max-width: 768px) {
-
-    .container {
-        width: min(100% - 28px, 600px);
+    .header {
+        position: absolute;
     }
 
     .header-inner {
         min-height: auto;
 
-        padding: 15px 0;
+        padding-top: 18px;
+        padding-bottom: 18px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .nav {
+        width: 100%;
+
+        overflow-x: auto;
+
+        padding-bottom: 3px;
+
+        scrollbar-width: none;
+    }
+
+    .nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-link {
+        flex-shrink: 0;
+    }
+
+    .hero {
+        padding-top: 190px;
+    }
+
+    .download-box {
+        padding: 45px 30px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .container {
+        width:
+            min(100% - 28px, 1180px);
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        width: 100%;
 
         flex-direction: column;
 
         align-items: stretch;
-
-        gap: 14px;
     }
 
-    .logo {
-        justify-content: center;
-
-        font-size: 19px;
-    }
-
-    .logo img {
-        width: 37px;
-        height: 37px;
-    }
-
-    .nav {
-        display: grid;
-
-        grid-template-columns: repeat(4, 1fr);
-
-        width: 100%;
-
-        gap: 5px;
-    }
-
-    .nav-link {
-        width: 100%;
-
-        min-height: 38px;
-
-        padding: 0 5px;
-
-        font-size: 11px;
-
-        text-align: center;
-    }
-
-    .config-button span {
-        margin-right: 3px;
-    }
-
-    .hero {
-        min-height: auto;
-
-        padding: 90px 0 100px;
-
-        text-align: center;
-    }
-
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hero-badge {
-        font-size: 9px;
-
-        letter-spacing: 1.3px;
-    }
-
-    .hero h1 {
-        font-size: clamp(44px, 13vw, 68px);
-
-        letter-spacing: -2.8px;
-    }
-
-    .hero-description {
-        max-width: 500px;
-
-        font-size: 15px;
-        line-height: 1.65;
-    }
-
-    .hero-buttons,
-    .download-buttons {
-        width: 100%;
-
-        flex-direction: column;
-    }
-
-    .button {
+    .hero-buttons .button {
         width: 100%;
     }
 
@@ -1231,18 +1256,8 @@ a {
         padding: 80px 0;
     }
 
-    .section-heading {
-        margin-bottom: 32px;
-    }
-
-    .section-heading h2 {
-        font-size: 38px;
-    }
-
     .features-grid {
         grid-template-columns: 1fr;
-
-        gap: 12px;
     }
 
     .feature-card {
@@ -1251,120 +1266,64 @@ a {
         padding: 25px;
     }
 
-    .download-section {
-        padding-top: 45px;
-        padding-bottom: 90px;
-    }
-
     .download-box {
-        padding: 45px 25px;
+        padding: 38px 22px;
 
-        text-align: center;
+        border-radius: 18px;
     }
 
-    .download-box h2 {
-        font-size: 38px;
+    .download-buttons {
+        flex-direction: column;
+    }
+
+    .download-buttons .button {
+        width: 100%;
+    }
+
+    .download-modal-box {
+        padding:
+            34px 22px 25px;
+    }
+
+    .download-modal-box h2 {
+        font-size: 21px;
+    }
+
+    .download-modal-box p {
+        font-size: 14px;
     }
 
     .configs-page {
-        min-height: calc(100vh - 230px);
-
-        padding: 80px 0;
-    }
-
-    .configs-header h1 {
-        font-size: 48px;
-
-        letter-spacing: -2px;
+        padding-top: 150px;
     }
 
     .coming-soon {
-        padding: 45px 22px;
+        padding: 35px 22px;
     }
 
-    .footer-inner {
-        min-height: auto;
-
-        padding: 25px 0;
-
-        flex-direction: column;
-
-        justify-content: center;
-
-        text-align: center;
-    }
-
-    .footer p {
-        font-size: 11px;
-    }
-
-    .moon {
-        width: 65px;
-        height: 65px;
-
-        top: 100px;
-        right: 8%;
-    }
-
-    .mountains {
-        bottom: 12%;
-
-        height: 180px;
-    }
-
-    .ground {
-        height: 12%;
-    }
-
-    .horizon {
-        bottom: 12%;
-    }
 }
 
 
-/* =========================================================
-   SMALL PHONES
-   ========================================================= */
+@media (max-width: 400px) {
 
-@media (max-width: 420px) {
-
-    .container {
-        width: calc(100% - 22px);
+    .logo {
+        font-size: 17px;
     }
 
-    .nav {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .nav-link {
-        min-height: 40px;
-
-        font-size: 12px;
-    }
-
-    .hero {
-        padding-top: 70px;
+    .logo img {
+        width: 34px;
+        height: 34px;
     }
 
     .hero h1 {
         font-size: 43px;
-
-        letter-spacing: -2px;
     }
 
-    .hero-description {
-        font-size: 14px;
+    .nav-link {
+        font-size: 13px;
+
+        padding:
+            8px 9px;
     }
 
-    .section-heading h2 {
-        font-size: 34px;
-    }
-
-    .download-box h2 {
-        font-size: 33px;
-    }
-
-    .configs-header h1 {
-        font-size: 40px;
-    }
 }
