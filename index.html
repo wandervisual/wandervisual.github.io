@@ -8,45 +8,27 @@
 
     <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
 
-    <!-- Minecraft Background -->
-    <div class="minecraft-bg">
+    <div class="background">
         <div class="stars"></div>
-
         <div class="moon"></div>
-
         <div class="cloud cloud-1"></div>
         <div class="cloud cloud-2"></div>
-
-        <div class="mountains mountains-back"></div>
-        <div class="mountains mountains-front"></div>
-
+        <div class="mountains"></div>
         <div class="horizon"></div>
         <div class="ground"></div>
     </div>
 
-
-    <!-- Header -->
     <header class="header">
+        <div class="container header-inner">
 
-        <div class="header-container">
-
-            <a href="./" class="logo">
-
-                <img
-                    src="./logo.png"
-                    alt="WanderVisuals"
-                >
-
+            <a href="./index.html" class="logo">
+                <img src="./wndr.png" alt="WanderVisuals">
                 <span>WanderVisuals</span>
-
             </a>
 
-
             <nav class="nav">
-
                 <a href="./index.html" class="nav-link active">
                     Главная
                 </a>
@@ -60,101 +42,71 @@
                 </a>
 
                 <a href="./configs/" class="nav-link config-button">
-                    <span>⚙</span>
-                    Configs
+                    <span>⚙</span> Configs
                 </a>
-
             </nav>
 
         </div>
-
     </header>
 
-
-    <!-- Main -->
     <main>
 
-
-        <!-- Hero -->
+        <!-- HERO -->
         <section class="hero">
+            <div class="container hero-content">
 
-            <div class="hero-content">
-
-                <div class="hero-logo">
-
-                    <img
-                        src="./logo.png"
-                        alt="WanderVisuals Logo"
-                    >
-
+                <div class="hero-badge">
+                    MINECRAFT CLIENT MOD
                 </div>
 
-
-                <p class="hero-small">
-                    MINECRAFT MOD
-                </p>
-
-
                 <h1>
-                    WanderVisuals
+                    Твой мир.<br>
+                    <span>Твои правила.</span>
                 </h1>
 
-
-                <h2>
-                    Твой мир. Твои правила.
-                </h2>
-
-
                 <p class="hero-description">
-                    Современный Minecraft-мод,
-                    созданный для тех, кто хочет
-                    сделать свою игру красивее,
-                    удобнее и атмосфернее.
+                    WanderVisuals — визуальный Minecraft-мод,
+                    созданный для тех, кто хочет сделать игру
+                    красивее, удобнее и уникальнее.
                 </p>
 
-
                 <div class="hero-buttons">
-
                     <a href="#download" class="button button-primary">
                         Скачать мод
                     </a>
 
-                    <a href="./configs/" class="button button-secondary">
-                        ⚙ Конфиги
+                    <a href="#features" class="button button-secondary">
+                        Узнать больше
                     </a>
-
                 </div>
 
             </div>
-
         </section>
 
 
+        <!-- FEATURES -->
+        <section id="features" class="section features-section">
 
-        <!-- Features -->
-        <section id="features" class="section">
+            <div class="container">
 
-            <div class="section-container">
+                <div class="section-heading">
+                    <div class="section-label">
+                        FEATURES
+                    </div>
 
-                <p class="section-label">
-                    FEATURES
-                </p>
+                    <h2>
+                        Возможности
+                    </h2>
 
-                <h2 class="section-title">
-                    Возможности WanderVisuals
-                </h2>
-
-                <p class="section-description">
-                    Всё необходимое для комфортной
-                    и красивой игры в одном моде.
-                </p>
+                    <p>
+                        Всё необходимое для улучшения твоего Minecraft.
+                    </p>
+                </div>
 
 
                 <div class="features-grid">
 
-
                     <div class="feature-card">
-
                         <div class="feature-icon">
                             ✨
                         </div>
@@ -164,17 +116,13 @@
                         </h3>
 
                         <p>
-                            Красивые визуальные эффекты,
-                            которые делают Minecraft
-                            атмосфернее.
+                            Улучшай внешний вид игры и добавляй
+                            новые визуальные эффекты.
                         </p>
-
                     </div>
 
 
-
                     <div class="feature-card">
-
                         <div class="feature-icon">
                             ⚡
                         </div>
@@ -184,18 +132,31 @@
                         </h3>
 
                         <p>
-                            Оптимизация и удобные настройки
-                            для комфортной игры.
+                            Оптимизированная работа мода без
+                            лишней нагрузки на систему.
                         </p>
-
                     </div>
 
 
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            🎨
+                        </div>
+
+                        <h3>
+                            Customization
+                        </h3>
+
+                        <p>
+                            Настраивай мод под себя с помощью
+                            удобных конфигураций.
+                        </p>
+                    </div>
+
 
                     <div class="feature-card">
-
                         <div class="feature-icon">
-                            ⚙️
+                            🛠️
                         </div>
 
                         <h3>
@@ -203,97 +164,81 @@
                         </h3>
 
                         <p>
-                            Гибкая настройка функций мода
-                            под свой стиль игры.
+                            Используй готовые конфигурации от
+                            популярных Minecraft YouTubers.
                         </p>
-
                     </div>
 
+                </div>
+
+            </div>
+
+        </section>
 
 
-                    <div class="feature-card">
+        <!-- DOWNLOAD -->
+        <section id="download" class="section download-section">
 
-                        <div class="feature-icon">
-                            🎮
+            <div class="container">
+
+                <div class="download-box">
+
+                    <div class="download-content">
+
+                        <div class="section-label">
+                            DOWNLOAD
                         </div>
 
-                        <h3>
-                            Minecraft
-                        </h3>
+                        <h2>
+                            Готов попробовать?
+                        </h2>
 
                         <p>
-                            Создан специально для Minecraft
-                            и его атмосферы.
+                            Скачай WanderVisuals и создай свой
+                            уникальный Minecraft.
                         </p>
+
+                        <div class="download-buttons">
+
+                            <a href="#" class="button button-primary">
+                                Скачать WanderVisuals
+                            </a>
+
+                        </div>
 
                     </div>
 
-
                 </div>
 
             </div>
 
         </section>
-
-
-
-        <!-- Download -->
-        <section id="download" class="download-section">
-
-            <div class="download-card">
-
-                <div class="download-logo">
-
-                    <img
-                        src="./logo.png"
-                        alt="WanderVisuals"
-                    >
-
-                </div>
-
-
-                <p class="section-label">
-                    DOWNLOAD
-                </p>
-
-
-                <h2>
-                    WanderVisuals
-                </h2>
-
-
-                <p>
-                    Скоро здесь появится последняя
-                    версия мода.
-                </p>
-
-
-                <a href="#" class="button button-primary">
-                    Скачать
-                </a>
-
-            </div>
-
-        </section>
-
 
     </main>
 
 
-
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="footer">
 
-        <p>
-            © 2026 WanderVisuals
-        </p>
+        <div class="container footer-inner">
 
-        <p>
-            Твой мир. Твои правила.
-        </p>
+            <div class="footer-brand">
+
+                <img src="./wndr.png" alt="WanderVisuals">
+
+                <span>
+                    WanderVisuals
+                </span>
+
+            </div>
+
+            <p>
+                © 2026 WanderVisuals. All rights reserved.
+            </p>
+
+        </div>
 
     </footer>
-
 
 </body>
 </html>
