@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="icon" type="image/png" href="./favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>WanderVisuals</title>
 
+    <link rel="icon" type="image/png" href="./favicon.png">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -21,6 +21,7 @@
         <div class="ground"></div>
     </div>
 
+    <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
 
@@ -50,6 +51,7 @@
         </div>
     </header>
 
+    <!-- MAIN -->
     <main>
 
         <!-- HERO -->
@@ -72,6 +74,7 @@
                 </p>
 
                 <div class="hero-buttons">
+
                     <a href="#download" class="button button-primary">
                         Скачать мод
                     </a>
@@ -79,11 +82,11 @@
                     <a href="#features" class="button button-secondary">
                         Узнать больше
                     </a>
+
                 </div>
 
             </div>
         </section>
-
 
         <!-- FEATURES -->
         <section id="features" class="section features-section">
@@ -91,6 +94,7 @@
             <div class="container">
 
                 <div class="section-heading">
+
                     <div class="section-label">
                         FEATURES
                     </div>
@@ -102,12 +106,13 @@
                     <p>
                         Всё необходимое для улучшения твоего Minecraft.
                     </p>
-                </div>
 
+                </div>
 
                 <div class="features-grid">
 
                     <div class="feature-card">
+
                         <div class="feature-icon">
                             ✨
                         </div>
@@ -117,13 +122,13 @@
                         </h3>
 
                         <p>
-                            Улучшай внешний вид игры и добавляй
-                            новые визуальные эффекты.
+                            Улучшай внешний вид игры и добавляй новые визуальные эффекты.
                         </p>
+
                     </div>
 
-
                     <div class="feature-card">
+
                         <div class="feature-icon">
                             ⚡
                         </div>
@@ -133,13 +138,13 @@
                         </h3>
 
                         <p>
-                            Оптимизированная работа мода без
-                            лишней нагрузки на систему.
+                            Оптимизированная работа мода без лишней нагрузки на систему.
                         </p>
+
                     </div>
 
-
                     <div class="feature-card">
+
                         <div class="feature-icon">
                             🎨
                         </div>
@@ -149,13 +154,13 @@
                         </h3>
 
                         <p>
-                            Настраивай мод под себя с помощью
-                            удобных конфигураций.
+                            Настраивай мод под себя с помощью удобных конфигураций.
                         </p>
+
                     </div>
 
-
                     <div class="feature-card">
+
                         <div class="feature-icon">
                             🛠️
                         </div>
@@ -165,9 +170,9 @@
                         </h3>
 
                         <p>
-                            Используй готовые конфигурации от
-                            популярных Minecraft YouTubers.
+                            Используй готовые конфигурации от популярных Minecraft YouTubers.
                         </p>
+
                     </div>
 
                 </div>
@@ -175,7 +180,6 @@
             </div>
 
         </section>
-
 
         <!-- DOWNLOAD -->
         <section id="download" class="section download-section">
@@ -195,15 +199,18 @@
                         </h2>
 
                         <p>
-                            Скачай WanderVisuals и создай свой
-                            уникальный Minecraft.
+                            Скачай WanderVisuals и создай свой уникальный Minecraft.
                         </p>
 
                         <div class="download-buttons">
 
-                            <a href="#" class="button button-primary">
+                            <button
+                                type="button"
+                                class="button button-primary"
+                                onclick="showDownloadNotice()"
+                            >
                                 Скачать WanderVisuals
-                            </a>
+                            </button>
 
                         </div>
 
@@ -217,6 +224,48 @@
 
     </main>
 
+    <!-- DOWNLOAD MODAL -->
+    <div class="download-modal" id="downloadModal">
+
+        <div
+            class="download-modal-overlay"
+            onclick="closeDownloadNotice()"
+        ></div>
+
+        <div class="download-modal-box">
+
+            <button
+                type="button"
+                class="download-modal-close"
+                onclick="closeDownloadNotice()"
+                aria-label="Закрыть"
+            >
+                ×
+            </button>
+
+            <div class="download-modal-icon">
+                ⚠
+            </div>
+
+            <h2>
+                Установка временно отключена
+            </h2>
+
+            <p>
+                Сейчас мод не получится скачать потому что он не готов.
+            </p>
+
+            <button
+                type="button"
+                class="button button-primary"
+                onclick="closeDownloadNotice()"
+            >
+                ОК
+            </button>
+
+        </div>
+
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -240,6 +289,36 @@
         </div>
 
     </footer>
+
+    <!-- MODAL SCRIPT -->
+    <script>
+
+        function showDownloadNotice() {
+            const modal = document.getElementById("downloadModal");
+
+            modal.classList.add("active");
+
+            document.body.classList.add("modal-open");
+        }
+
+        function closeDownloadNotice() {
+            const modal = document.getElementById("downloadModal");
+
+            modal.classList.remove("active");
+
+            document.body.classList.remove("modal-open");
+        }
+
+        // Закрытие окна клавишей ESC
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+                closeDownloadNotice();
+            }
+
+        });
+
+    </script>
 
 </body>
 </html>
