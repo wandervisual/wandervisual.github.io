@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -9,8 +10,10 @@
     <link rel="icon" type="image/png" href="./favicon.png">
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
+    <!-- BACKGROUND -->
     <div class="background">
         <div class="stars"></div>
         <div class="moon"></div>
@@ -21,8 +24,10 @@
         <div class="ground"></div>
     </div>
 
+
     <!-- HEADER -->
     <header class="header">
+
         <div class="container header-inner">
 
             <a href="./" class="logo">
@@ -31,6 +36,7 @@
             </a>
 
             <nav class="nav">
+
                 <a href="./" class="nav-link active">
                     Главная
                 </a>
@@ -46,16 +52,21 @@
                 <a href="./configs/" class="nav-link config-button">
                     <span>⚙</span> Configs
                 </a>
+
             </nav>
 
         </div>
+
     </header>
+
 
     <!-- MAIN -->
     <main>
 
+
         <!-- HERO -->
         <section class="hero">
+
             <div class="container hero-content">
 
                 <div class="hero-badge">
@@ -75,21 +86,32 @@
 
                 <div class="hero-buttons">
 
-                    <a href="#download" class="button button-primary">
+                    <a
+                        href="#download"
+                        class="button button-primary"
+                    >
                         Скачать мод
                     </a>
 
-                    <a href="#features" class="button button-secondary">
+                    <a
+                        href="#features"
+                        class="button button-secondary"
+                    >
                         Узнать больше
                     </a>
 
                 </div>
 
             </div>
+
         </section>
 
+
         <!-- FEATURES -->
-        <section id="features" class="section features-section">
+        <section
+            id="features"
+            class="section features-section"
+        >
 
             <div class="container">
 
@@ -109,8 +131,11 @@
 
                 </div>
 
+
                 <div class="features-grid">
 
+
+                    <!-- FEATURE 1 -->
                     <div class="feature-card">
 
                         <div class="feature-icon">
@@ -127,6 +152,8 @@
 
                     </div>
 
+
+                    <!-- FEATURE 2 -->
                     <div class="feature-card">
 
                         <div class="feature-icon">
@@ -143,6 +170,8 @@
 
                     </div>
 
+
+                    <!-- FEATURE 3 -->
                     <div class="feature-card">
 
                         <div class="feature-icon">
@@ -159,6 +188,8 @@
 
                     </div>
 
+
+                    <!-- FEATURE 4 -->
                     <div class="feature-card">
 
                         <div class="feature-icon">
@@ -181,8 +212,12 @@
 
         </section>
 
+
         <!-- DOWNLOAD -->
-        <section id="download" class="section download-section">
+        <section
+            id="download"
+            class="section download-section"
+        >
 
             <div class="container">
 
@@ -202,15 +237,17 @@
                             Скачай WanderVisuals и создай свой уникальный Minecraft.
                         </p>
 
+
                         <div class="download-buttons">
 
-                            <button
-                                type="button"
+                            <a
+                                href="https://www.example.com"
                                 class="button button-primary"
-                                onclick="showDownloadNotice()"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 Скачать WanderVisuals
-                            </button>
+                            </a>
 
                         </div>
 
@@ -224,48 +261,6 @@
 
     </main>
 
-    <!-- DOWNLOAD MODAL -->
-    <div class="download-modal" id="downloadModal">
-
-        <div
-            class="download-modal-overlay"
-            onclick="closeDownloadNotice()"
-        ></div>
-
-        <div class="download-modal-box">
-
-            <button
-                type="button"
-                class="download-modal-close"
-                onclick="closeDownloadNotice()"
-                aria-label="Закрыть"
-            >
-                ×
-            </button>
-
-            <div class="download-modal-icon">
-                ⚠
-            </div>
-
-            <h2>
-                Установка временно отключена
-            </h2>
-
-            <p>
-                Сейчас мод не получится скачать потому что он не готов.
-            </p>
-
-            <button
-                type="button"
-                class="button button-primary"
-                onclick="closeDownloadNotice()"
-            >
-                ОК
-            </button>
-
-        </div>
-
-    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -274,7 +269,10 @@
 
             <div class="footer-brand">
 
-                <img src="./wndr.png" alt="WanderVisuals">
+                <img
+                    src="./wndr.png"
+                    alt="WanderVisuals"
+                >
 
                 <span>
                     WanderVisuals
@@ -290,35 +288,6 @@
 
     </footer>
 
-    <!-- MODAL SCRIPT -->
-    <script>
-
-        function showDownloadNotice() {
-            const modal = document.getElementById("downloadModal");
-
-            modal.classList.add("active");
-
-            document.body.classList.add("modal-open");
-        }
-
-        function closeDownloadNotice() {
-            const modal = document.getElementById("downloadModal");
-
-            modal.classList.remove("active");
-
-            document.body.classList.remove("modal-open");
-        }
-
-        // Закрытие окна клавишей ESC
-        document.addEventListener("keydown", function(event) {
-
-            if (event.key === "Escape") {
-                closeDownloadNotice();
-            }
-
-        });
-
-    </script>
-
 </body>
 </html>
+```
