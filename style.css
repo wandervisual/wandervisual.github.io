@@ -1438,5 +1438,26 @@ body.modal-open {
     .download-modal-box h2 {
         font-size: 22px;
     }
+/* =========================
+   CONFIG CONTACT
+========================= */
 
+.configs-contact {
+    margin-top: 35px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.configs-contact a {
+    color: var(--blue-light);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.configs-contact a:hover {
+    color: var(--text);
+}
 }
