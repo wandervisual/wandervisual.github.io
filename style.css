@@ -31,7 +31,8 @@
         rgba(35, 71, 101, 0.95)
     );
 
-    --shadow-blue: 0 0 35px rgba(52, 111, 163, 0.18);
+    --shadow-blue:
+        0 0 35px rgba(52, 111, 163, 0.18);
 }
 
 
@@ -51,6 +52,9 @@ html {
 
 body {
     min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
 
     background: var(--bg-dark);
 
@@ -88,7 +92,6 @@ img {
 
 .container {
     width: min(1180px, calc(100% - 40px));
-
     margin: 0 auto;
 }
 
@@ -192,7 +195,7 @@ img {
             #667685 100%
         );
 
-    opacity: 0.75;
+    opacity: 0.7;
 
     box-shadow:
         0 0 40px rgba(155, 190, 215, 0.15),
@@ -274,7 +277,6 @@ img {
     position: absolute;
 
     bottom: 22%;
-
     left: 0;
 
     width: 100%;
@@ -407,7 +409,8 @@ img {
 
     transition:
         color 0.2s ease,
-        background 0.2s ease;
+        background 0.2s ease,
+        transform 0.2s ease;
 }
 
 .nav-link:hover {
@@ -418,15 +421,17 @@ img {
 }
 
 .nav-link.active {
-    color: var(--text);
+    color: #ffffff;
 
     background:
-        rgba(59, 130, 196, 0.1);
-}
+        linear-gradient(
+            135deg,
+            rgba(59, 130, 196, 0.18),
+            rgba(59, 130, 196, 0.08)
+        );
 
-.config-button {
     border:
-        1px solid rgba(59, 130, 196, 0.2);
+        1px solid rgba(59, 130, 196, 0.18);
 }
 
 .config-button span {
@@ -531,6 +536,8 @@ img {
 
     font-size: 14px;
     font-weight: 700;
+
+    cursor: pointer;
 
     transition:
         transform 0.2s ease,
@@ -811,72 +818,27 @@ img {
 
 
 /* =========================
-   FOOTER
-========================= */
-
-.footer {
-    padding: 30px 0;
-
-    border-top:
-        1px solid rgba(82, 128, 166, 0.12);
-
-    background:
-        rgba(4, 7, 10, 0.75);
-}
-
-.footer-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 20px;
-}
-
-.footer-brand {
-    display: flex;
-    align-items: center;
-
-    gap: 10px;
-
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.footer-brand img {
-    width: 28px;
-    height: 28px;
-
-    border-radius: 7px;
-}
-
-.footer-inner p {
-    color: var(--text-muted);
-
-    font-size: 12px;
-}
-
-
-/* =========================
    CONFIGS PAGE
 ========================= */
 
 .configs-page {
-    min-height: calc(100vh - 136px);
+    flex: 1;
 
     padding:
-        150px 0 100px;
-
-    display: flex;
-    align-items: flex-start;
+        130px 0 55px;
 }
 
 .configs-header {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
+}
+
+.configs-header .section-label {
+    margin-bottom: 12px;
 }
 
 .configs-header h1 {
     font-size:
-        clamp(38px, 6vw, 64px);
+        clamp(42px, 6vw, 64px);
 
     line-height: 1;
 
@@ -889,28 +851,42 @@ img {
 
 
 /* =========================
-   CONFIG CARDS
+   CONFIGS GRID
 ========================= */
 
 .configs-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(300px, 1fr));
+        minmax(0, 900px);
 
     gap: 18px;
 }
 
+
+/* =========================
+   CONFIG CARD
+========================= */
+
 .config-card {
-    padding: 26px;
+    position: relative;
+
+    padding: 27px;
 
     background:
-        var(--bg-card);
+        linear-gradient(
+            135deg,
+            rgba(18, 24, 32, 0.94),
+            rgba(13, 19, 26, 0.9)
+        );
 
     border:
         1px solid var(--border);
 
-    border-radius: 17px;
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.12);
 
     transition:
         transform 0.25s ease,
@@ -919,16 +895,43 @@ img {
         box-shadow 0.25s ease;
 }
 
-.config-card:hover {
-    transform: translateY(-5px);
+.config-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 30px;
+    right: 30px;
+
+    height: 1px;
 
     background:
-        var(--bg-card-hover);
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(111, 168, 216, 0.28),
+            transparent
+        );
+
+    opacity: 0.8;
+}
+
+.config-card:hover {
+    transform: translateY(-4px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(23, 31, 41, 0.96),
+            rgba(16, 24, 33, 0.94)
+        );
 
     border-color:
         var(--border-blue);
 
     box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.2),
         var(--shadow-blue);
 }
 
@@ -954,15 +957,22 @@ img {
     border-radius: 13px;
 
     background:
-        rgba(59, 130, 196, 0.1);
+        linear-gradient(
+            135deg,
+            rgba(59, 130, 196, 0.15),
+            rgba(59, 130, 196, 0.06)
+        );
 
     border:
-        1px solid rgba(59, 130, 196, 0.2);
+        1px solid rgba(59, 130, 196, 0.22);
 
     color:
         var(--blue-light);
 
     font-size: 23px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .config-info {
@@ -1022,9 +1032,50 @@ img {
 
     min-height: 42px;
 
-    padding: 0 16px;
+    padding: 0 17px;
 
     font-size: 13px;
+}
+
+
+/* =========================
+   CONFIG CONTACT
+========================= */
+
+.configs-contact {
+    width: min(900px, 100%);
+
+    margin-top: 25px;
+
+    padding: 17px 20px;
+
+    text-align: center;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    background:
+        rgba(14, 20, 27, 0.65);
+
+    border:
+        1px solid rgba(82, 128, 166, 0.15);
+
+    border-radius: 12px;
+}
+
+.configs-contact a {
+    color: var(--blue-light);
+
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease;
+}
+
+.configs-contact a:hover {
+    color: #ffffff;
 }
 
 
@@ -1144,14 +1195,18 @@ img {
         0 20px 80px rgba(0, 0, 0, 0.45),
         0 0 45px rgba(52, 111, 163, 0.12);
 
-    transform: translateY(15px) scale(0.98);
+    transform:
+        translateY(15px)
+        scale(0.98);
 
     transition:
         transform 0.25s ease;
 }
 
 .download-modal.active .download-modal-box {
-    transform: translateY(0) scale(1);
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 .download-modal-close {
@@ -1247,7 +1302,56 @@ body.modal-open {
 
 
 /* =========================
-   RESPONSIVE
+   FOOTER
+========================= */
+
+.footer {
+    margin-top: auto;
+
+    padding: 28px 0;
+
+    border-top:
+        1px solid rgba(82, 128, 166, 0.12);
+
+    background:
+        rgba(4, 7, 10, 0.82);
+}
+
+.footer-inner {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.footer-brand img {
+    width: 28px;
+    height: 28px;
+
+    border-radius: 7px;
+}
+
+.footer-inner p {
+    color: var(--text-muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   RESPONSIVE 1000px
 ========================= */
 
 @media (max-width: 1000px) {
@@ -1264,9 +1368,12 @@ body.modal-open {
     .nav-link {
         padding: 9px 10px;
     }
-
 }
 
+
+/* =========================
+   RESPONSIVE 760px
+========================= */
 
 @media (max-width: 760px) {
 
@@ -1321,8 +1428,19 @@ body.modal-open {
         align-items: flex-start;
     }
 
+    .configs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .configs-contact {
+        width: 100%;
+    }
 }
 
+
+/* =========================
+   RESPONSIVE 600px
+========================= */
 
 @media (max-width: 600px) {
 
@@ -1381,10 +1499,15 @@ body.modal-open {
 
     .configs-page {
         padding-top: 150px;
+        padding-bottom: 40px;
     }
 
-    .coming-soon {
-        padding: 35px 22px;
+    .configs-header {
+        margin-bottom: 27px;
+    }
+
+    .configs-header h1 {
+        font-size: 43px;
     }
 
     .config-card {
@@ -1401,17 +1524,34 @@ body.modal-open {
         width: 100%;
     }
 
+    .configs-contact {
+        margin-top: 20px;
+
+        padding:
+            15px 16px;
+
+        font-size: 12px;
+    }
+
+    .coming-soon {
+        padding: 35px 22px;
+    }
+
     .download-modal {
         padding: 14px;
     }
 
     .download-modal-box {
         padding: 32px 20px;
+
         border-radius: 17px;
     }
-
 }
 
+
+/* =========================
+   RESPONSIVE 400px
+========================= */
 
 @media (max-width: 400px) {
 
@@ -1438,26 +1578,23 @@ body.modal-open {
     .download-modal-box h2 {
         font-size: 22px;
     }
-/* =========================
-   CONFIG CONTACT
-========================= */
 
-.configs-contact {
-    margin-top: 35px;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 14px;
-    line-height: 1.6;
-}
+    .config-card-top {
+        gap: 12px;
+    }
 
-.configs-contact a {
-    color: var(--blue-light);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-}
+    .config-icon {
+        width: 46px;
+        height: 46px;
 
-.configs-contact a:hover {
-    color: var(--text);
-}
+        font-size: 20px;
+    }
+
+    .config-info h2 {
+        font-size: 18px;
+    }
+
+    .config-info p {
+        font-size: 13px;
+    }
 }
