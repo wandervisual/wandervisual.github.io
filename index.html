@@ -18,6 +18,34 @@
 
     <link rel="icon" type="image/png" href="./favicon.png">
     <link rel="stylesheet" href="./style.css">
+    
+    <style>
+        /* Добавляем 3D перспективу родительскому контейнеру сетки */
+        .features-grid {
+            perspective: 1000px;
+        }
+
+        /* Настройка 3D пространства для самих карточек */
+        .feature-card {
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+        /* Выталкиваем иконки и заголовки вперед в 3D слоях при наведении */
+        .feature-card .feature-icon {
+            transform: translateZ(30px);
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            transform: translateZ(20px);
+        }
+
+        .feature-card p {
+            transform: translateZ(10px);
+        }
+    </style>
 </head>
 
 <body>
@@ -295,6 +323,33 @@
         </div>
 
     </footer>
+
+    <!-- СКРИПТ ДЛЯ MULTI-CARD TILT ЭФФЕКТА -->
+    <script>
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                
+                const width = rect.width;
+                const height = rect.height;
+                const centerX = rect.left + width / 2;
+                const centerY = rect.top + height / 2;
+                
+                const mouseX = e.clientX - centerX;
+                const mouseY = e.clientY - centerY;
+                
+                const maxTilt = 15; // Максимальный угол наклона в градусах
+                const rotateX = (-mouseY / (height / 2)) * maxTilt;
+                const rotateY = (mouseX / (width / 2)) * maxTilt;
+                
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+            });
+        });
+    </script>
 
 </body>
 </html>
