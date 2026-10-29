@@ -20,30 +20,42 @@
     <link rel="stylesheet" href="./style.css">
     
     <style>
-        /* Добавляем 3D перспективу родительскому контейнеру сетки */
+        /* Включаем 3D-перспективу для контейнера */
         .features-grid {
             perspective: 1000px;
         }
 
-        /* Настройка 3D пространства для самих карточек */
+        /* Настройка самих карточек */
         .feature-card {
             transform-style: preserve-3d;
             transition: transform 0.15s ease-out, box-shadow 0.2s ease;
             cursor: pointer;
+            
+            /* Защита от мыльного текста в браузерах */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            backface-visibility: hidden;
         }
 
-        /* Выталкиваем иконки и заголовки вперед в 3D слоях при наведении */
+        /* Фикс для иконки: сохраняем флекс/выравнивание и убираем сдвиг */
         .feature-card .feature-icon {
-            transform: translateZ(30px);
-            display: inline-block;
+            transform: translateZ(25px);
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
         }
 
+        /* Фикс для четкости и центрирования текста */
         .feature-card h3 {
-            transform: translateZ(20px);
+            transform: translateZ(15px);
+            -webkit-font-smoothing: antialiased;
         }
 
         .feature-card p {
             transform: translateZ(10px);
+            -webkit-font-smoothing: antialiased;
         }
     </style>
 </head>
@@ -278,7 +290,7 @@
                         <div class="download-buttons">
 
                             <a
-                                href="https://raw.githubusercontent.com/wandervisual/wandervisual.github.io/refs/heads/main/wndr-1.0.jar"
+                                href="https://githubusercontent.com"
                                 class="button button-primary"
                                 download="wndr-1.0.jar"
                             >
@@ -338,7 +350,7 @@
                 const mouseX = e.clientX - centerX;
                 const mouseY = e.clientY - centerY;
                 
-                const maxTilt = 15; // Максимальный угол наклона в градусах
+                const maxTilt = 12; // Сделал наклон чуть мягче (было 15), чтобы текст не искажался
                 const rotateX = (-mouseY / (height / 2)) * maxTilt;
                 const rotateY = (mouseX / (width / 2)) * maxTilt;
                 
